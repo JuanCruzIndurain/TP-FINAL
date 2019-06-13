@@ -56,19 +56,19 @@ cOllaAgua::~cOllaAgua(){
 
 const float cOllaAgua::getCapacidad(){
 
-	return 0;
+	return Capacidad;
 }
 
 
 const string cOllaAgua::getMaterial(){
 
-	return  NULL;
+	return  Material;
 }
 
 
 float cOllaAgua::getTemperatura(){
 
-	return 0;
+	return Tempertatura;
 }
 
 

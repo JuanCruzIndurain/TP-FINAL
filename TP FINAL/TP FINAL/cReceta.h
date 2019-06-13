@@ -12,7 +12,8 @@
 #include "cSimulador.h"
 #include "cOlla.h"
 #include "cInsumos.h"
-
+#include <string>
+using namespace std;
 class cReceta
 {
 
