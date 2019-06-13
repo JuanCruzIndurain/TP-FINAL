@@ -15,6 +15,7 @@ class cExtras : public cInsumos
 
 public:
 	cExtras();
+	cExtras(string nombre);
 	virtual ~cExtras();
 
 private:

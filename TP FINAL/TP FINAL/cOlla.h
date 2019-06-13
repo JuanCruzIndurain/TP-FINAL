@@ -7,7 +7,7 @@
 
 #if !defined(EA_02F8D4EA_ED09_4e9b_AB2D_93521B4D18A3__INCLUDED_)
 #define EA_02F8D4EA_ED09_4e9b_AB2D_93521B4D18A3__INCLUDED_
-
+#include "cReceta.h"//para tener el string
 class cOlla
 {
 

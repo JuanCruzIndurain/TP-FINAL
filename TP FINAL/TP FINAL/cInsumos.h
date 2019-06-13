@@ -7,7 +7,7 @@
 
 #if !defined(EA_DC13A1C7_BA2A_489b_A8CA_C46C76C881D9__INCLUDED_)
 #define EA_DC13A1C7_BA2A_489b_A8CA_C46C76C881D9__INCLUDED_
-
+#include "cReceta.h"//para tener el string
 class cInsumos
 {
 

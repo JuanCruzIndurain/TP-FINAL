@@ -22,8 +22,15 @@ cSimulador::~cSimulador(){
 
 
 
-void cSimulador::Generador_Tiempo(int Unidad_Tiempo, float Cantidad){
+void cSimulador::Generador_Tiempo(int Cantidad)//simula el tiempo en segundos
+{
+	double duracion;
+	clock_t comienzo = clock();
+	duracion = ((double)clock() - comienzo) / (double)CLOCKS_PER_SEC;
 
+	while (Cantidad > duracion) {
+		duracion = ((double)clock() - comienzo) / (double)CLOCKS_PER_SEC;
+	}
 }
 
 
