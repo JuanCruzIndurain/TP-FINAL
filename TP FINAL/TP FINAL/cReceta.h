@@ -5,6 +5,7 @@
 #include "cOllaMaceracion.h"
 #include "cOllaCoccion.h"
 #include "cInsumos.h"
+#include <iostream>
 
 class cReceta
 {
@@ -12,14 +13,18 @@ class cReceta
 public:
 	cReceta();
 	virtual ~cReceta();
-	cFermentador *fermentador;
-	cOlla *olla[3];
-	cListaT<cInsumos> *insumos;
-	const void Imprimir_Info();
+	cFermentador *Fermentador;
+	cOlla *Olla[3];
+
+	void Imprimir_Info() const;
 
 private:
+	cListaT<cInsumos> *Insumos;
 	float Graduacion_Alcoholica;
 	float IBU;
 	string Nombre;
 
 };
+
+cListaT<cInsumos> *Insumos = new cListaT<cInsumos>();
+//la lleno con la totalidad de los insumos

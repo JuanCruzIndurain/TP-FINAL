@@ -1,10 +1,12 @@
 #pragma once
 #include "cReceta.h"
+#include <ctime>
 #include <iostream>
+
 
 class cSimulador
 {
-	cListaT<cReceta> *recetas;
+	cListaT<cReceta> *Recetas;
 
 public:
 	cSimulador();

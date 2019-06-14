@@ -7,7 +7,7 @@ class cOllaMaceracion : public cOlla
 public:
 	cOllaMaceracion();
 	virtual ~cOllaMaceracion();
-	virtual void Hacer_Algo();
+	void HacerAlgo();
 	void agregar(float agua, float malta);
 
 private:

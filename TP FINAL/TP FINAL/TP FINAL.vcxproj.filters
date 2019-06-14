@@ -48,6 +48,12 @@
     <ClInclude Include="cSimulador.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cLista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cExtras.cpp">
