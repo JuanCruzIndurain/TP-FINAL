@@ -149,6 +149,7 @@
     <ClCompile Include="cOllaMaceracion.cpp" />
     <ClCompile Include="cReceta.cpp" />
     <ClCompile Include="cSimulador.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
