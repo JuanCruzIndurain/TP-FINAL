@@ -88,7 +88,7 @@ void cListaT<T>::Listar()
 template<class T>
 bool cListaT<T>::AgregarItem(T * item)
 {
-	T *i_f = BuscarItem(item->getclave());
+	T *i_f = BuscarItem(item->getNombre());
 	if (i_f != NULL)throw new exception("Ya se encuentra en la lista");
 
 	if (CA < TAM)
@@ -120,7 +120,7 @@ T* cListaT<T>::Quitar(string clave) {
 
 template<class T>
 T* cListaT<T>::Quitar(const T *item) {
-	unsigned int pos = getItemPos(item->getclave());
+	unsigned int pos = getItemPos(item->getNombre());
 	if (pos >= CA)return NULL;
 	return QuitarenPos(pos);
 }
@@ -155,7 +155,7 @@ void cListaT<T>::Eliminar(string clave) {
 template<class T>
 void cListaT<T>::Eliminar(const T *item) {
 
-	Eliminar(item->getclave());
+	Eliminar(item->getNombre());
 }
 
 template<class T>
@@ -177,7 +177,7 @@ T* cListaT<T>::BuscarItem(string clave)
 {
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		if (vector[i]->getclave() == clave)
+		if (vector[i]->getNombre() == clave)
 			return vector[i];
 	}
 	return NULL;
@@ -196,7 +196,7 @@ unsigned int cListaT<T>::getItemPos(string clave)
 {
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		if (vector[i]->getclave() == clave)
+		if (vector[i]->getNombre() == clave)
 			return i;
 	}
 	return INT_MAX;

@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 enum insumos
 {
@@ -31,4 +32,13 @@ enum insumos
 	Levadura_Safale = 26,			//IPA, IRISH RED, RUBIA
 	Levadura_Fermentis = 27,		//PORTER
 	Levadura_Ale = 28				//HONEY
+};
+
+enum cervezas
+{
+	Rubia = 1,
+	Porter = 2,
+	Honey = 3,
+	IPA = 4,
+	Irish_Red = 5
 };

@@ -9,7 +9,6 @@ cReceta::cReceta() {
 }
 
 cReceta::~cReceta() {
-
 }
 
 void cReceta::Imprimir_Info() const {
