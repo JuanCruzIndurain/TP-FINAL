@@ -1,13 +1,16 @@
 #include <iostream>
 #include "cSimulador.h"
 
-void main()
+int main(void)
 {
-	cSimulador *simulador = new cSimulador();
-	int tipo;
-	cout << "---- Indique el tipo de cerveza pedido ---- " << endl;
-	cout << "\n1. Rubia" << "\n2. Porter" << "\n3. Honey" << "\n4. IPA" << "Irish Red" << "\nSeleccion: ";
-	cin >> tipo;
-	simulador->Simular(tipo);
-	delete simulador;
+	cSimulador *Simulador = new cSimulador();
+	int Tipo;
+	cout << "---- Indique el numero del tipo de cerveza pedido ---- " << endl;
+	cout << "\n1 - Rubia" << "\n2 - Porter" << "\n3 - Honey" << "\n4 - IPA" << "\n5 - Irish Red" << "\nSeleccion: ";
+	cin >> Tipo;
+	Simulador->Simular(Tipo);
+	
+	delete Simulador;
+
+	return 0;
 }

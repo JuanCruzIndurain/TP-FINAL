@@ -1,11 +1,8 @@
 #include "cFermentador.h"
 
-
-cFermentador::cFermentador() {
+cFermentador::cFermentador() : Capacidad(25) {
 
 }
-
-
 
 cFermentador::~cFermentador() {
 

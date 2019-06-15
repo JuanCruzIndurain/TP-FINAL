@@ -1,11 +1,8 @@
 #include "cInsumos.h"
 
-
-cInsumos::cInsumos() {
+cInsumos::cInsumos() : Nombre("Malta Pale") {
 
 }
-
-
 
 cInsumos::~cInsumos() {
 

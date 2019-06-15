@@ -1,4 +1,5 @@
 #pragma once
+
 #include "cLista.h"
 #include "cFermentador.h"
 #include "cOllaAgua.h"
@@ -26,5 +27,4 @@ private:
 
 };
 
-cListaT<cInsumos> *Insumos = new cListaT<cInsumos>();
-//la lleno con la totalidad de los insumos
+cListaT<cInsumos> *Insumos = new cListaT<cInsumos>(); //la lleno con la totalidad de los insumos

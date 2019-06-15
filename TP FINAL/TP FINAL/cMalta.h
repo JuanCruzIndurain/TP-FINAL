@@ -1,4 +1,5 @@
 #pragma once
+
 #include "cInsumos.h"
 
 class cMalta : public cInsumos

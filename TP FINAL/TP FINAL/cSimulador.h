@@ -1,8 +1,8 @@
 #pragma once
+
 #include "cReceta.h"
 #include <ctime>
 #include <iostream>
-
 
 class cSimulador
 {
@@ -13,6 +13,5 @@ public:
 	virtual ~cSimulador();
 
 	void Generador_Tiempo(int Cantidad);
-	void Simular(int tipo);
-
+	void Simular(int Tipo);
 };

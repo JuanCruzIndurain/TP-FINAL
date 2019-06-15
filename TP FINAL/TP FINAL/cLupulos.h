@@ -1,4 +1,5 @@
 #pragma once
+
 #include "cInsumos.h"
 
 class cLupulos : public cInsumos
@@ -10,5 +11,4 @@ public:
 
 private:
 	float Alfa_Acidos;
-
 };

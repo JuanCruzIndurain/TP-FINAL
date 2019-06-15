@@ -1,4 +1,5 @@
 #pragma once
+
 #include "cInsumos.h"
 
 class cExtras : public cInsumos
@@ -14,4 +15,3 @@ private:
 	string Nombre;
 
 };
-

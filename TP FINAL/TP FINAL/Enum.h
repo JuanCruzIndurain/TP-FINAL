@@ -1,5 +1,7 @@
 #pragma once
-enum insumos {
+
+enum insumos
+{
 	Malta_Pale = 0,					//IPA, PORTER, IRISH RED, RUBIA
 	Malta_Vienna = 1,				//IPA
 	Malta_Biscuit = 2,				//IPA, HONEY
@@ -30,4 +32,3 @@ enum insumos {
 	Levadura_Fermentis = 27,		//PORTER
 	Levadura_Ale = 28				//HONEY
 };
-
