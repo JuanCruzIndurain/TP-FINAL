@@ -5,12 +5,21 @@
 #include "cOllaAgua.h"
 #include "cOllaMaceracion.h"
 #include "cOllaCoccion.h"
-#include "cInsumos.h"
+#include "cMalta.h"
+#include "cExtras.h"
+#include "cLupulos.h"
 #include "Enum.h"
 #include <iostream>
 
 class cReceta
 {
+	cListaT<cInsumos> *Insumos;
+	float tiempos[3];
+	int cantidades[3];
+	float Graduacion_Alcoholica;
+	float IBU;
+	string Nombre;
+	friend class cSimulador;
 
 public:
 	cReceta();
@@ -18,17 +27,8 @@ public:
 	cFermentador *Fermentador;
 	cOlla *Olla[3];
 	string getNombre() const { return Nombre; }
-	int getCantMaltas() { return cant_maltas; }
-	int getCantLupulos() { return cant_lupulos; }
-	int getCantExtras() { return cant_extras; }
 	void Imprimir_Info() const;
 
-private:
-	cListaT<cInsumos> *Insumos;
-	int cant_maltas, cant_lupulos, cant_extras;
-	float Graduacion_Alcoholica;
-	float IBU;
-	string Nombre;
 
 };
 

@@ -7,9 +7,10 @@ class cMalta : public cInsumos
 
 public:
 	cMalta();
+	cMalta(string nom, float cant, float cost, const int ebc);
 	virtual ~cMalta();
 
 private:
-	string Tipo;
+	const int EBC;
 
 };

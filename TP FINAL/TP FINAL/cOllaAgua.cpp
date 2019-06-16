@@ -5,24 +5,20 @@ cOllaAgua::cOllaAgua() {
 }
 
 cOllaAgua::~cOllaAgua() {
-
 }
 
 void cOllaAgua::Hacer_Algo() {
 
 }
 
-const float cOllaAgua::getCapacidad(){
-
-	return Capacidad;
+void cOllaAgua::agregar(float agua)
+{
+	Cant_Actual = agua;
+	Hacer_Algo();
 }
 
-const string cOllaAgua::getMaterial(){
-
-	return  Material;
-}
-
-float cOllaAgua::getTemperatura(){
-
-	return Tempertatura;
+void cOllaAgua::calentar(float temp)
+{
+	Tempertatura = temp;
+	Hacer_Algo();
 }
