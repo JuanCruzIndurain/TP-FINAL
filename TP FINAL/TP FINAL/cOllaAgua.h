@@ -4,12 +4,13 @@
 
 class cOllaAgua : public cOlla
 {
-	float Cant_Actual;
+	float Cantidad_Actual;
 
 public:
 	cOllaAgua();
+	cOllaAgua(const float capacidad, const string material, float Temperatura, float Cantidad_Actual);
 	virtual ~cOllaAgua();
 	void Hacer_Algo(); //llama a "agregar", controla la temperatura y cambia el atributo temperatura
-	void agregar(float agua); //agrega agua y cambia la capacidad
-	void calentar(float temp);
+	void Agregar(float Agua); //agrega agua y cambia la capacidad
+	void Calentar(float Temperatura);
 };

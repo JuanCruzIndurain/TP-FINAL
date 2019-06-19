@@ -1,13 +1,22 @@
 #include "cOllaMaceracion.h"
 
-cOllaMaceracion::cOllaMaceracion() {
+cOllaMaceracion::cOllaMaceracion() : cOlla()
+{
+	Filtro = "";
+	Remo = "";
+}
+
+cOllaMaceracion::~cOllaMaceracion()
+{
 
 }
 
-cOllaMaceracion::~cOllaMaceracion() {
+void cOllaMaceracion::Agregar(float Agua, float Malta)
+{
 
 }
 
-void cOllaMaceracion::Hacer_Algo() {
+void cOllaMaceracion::Hacer_Algo()
+{
 
 }

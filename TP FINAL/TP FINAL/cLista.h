@@ -110,7 +110,8 @@ bool cListaT<T>::AgregarItemOrdenado(const T * item)
 }
 
 template<class T>
-T* cListaT<T>::Quitar(string clave) {
+T* cListaT<T>::Quitar(string clave)
+{
 
 	unsigned int pos = getItemPos(clave);
 	if (pos >= CA)return NULL;
@@ -119,14 +120,16 @@ T* cListaT<T>::Quitar(string clave) {
 }
 
 template<class T>
-T* cListaT<T>::Quitar(const T *item) {
+T* cListaT<T>::Quitar(const T *item)
+{
 	unsigned int pos = getItemPos(item->getNombre());
 	if (pos >= CA)return NULL;
 	return QuitarenPos(pos);
 }
 
 template<class T>
-T* cListaT<T>::QuitarenPos(unsigned int pos) {
+T* cListaT<T>::QuitarenPos(unsigned int pos)
+{
 
 	if (pos >= CA)throw new exception("Posicion invalida");
 
@@ -143,7 +146,8 @@ T* cListaT<T>::QuitarenPos(unsigned int pos) {
 }
 
 template<class T>
-void cListaT<T>::Eliminar(string clave) {
+void cListaT<T>::Eliminar(string clave)
+{
 
 	unsigned int pos = getItemPos(clave);
 
@@ -153,13 +157,15 @@ void cListaT<T>::Eliminar(string clave) {
 }
 
 template<class T>
-void cListaT<T>::Eliminar(const T *item) {
+void cListaT<T>::Eliminar(const T *item)
+{
 
 	Eliminar(item->getNombre());
 }
 
 template<class T>
-void cListaT<T>::Eliminar(unsigned int pos) {
+void cListaT<T>::Eliminar(unsigned int pos)
+{
 	if (pos >= CA)return;// o Throw no pude eliminar
 
 	T *dato = QuitarenPos(pos);

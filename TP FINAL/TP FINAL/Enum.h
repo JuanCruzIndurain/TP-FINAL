@@ -1,7 +1,8 @@
 #pragma once
+
 #include <string>
 
-/*enum insumos
+/*enum Insumos
 {
 	Agua = 0,
 	Maltas = 0,
@@ -43,7 +44,7 @@ enum IPA {
 	Malta_Pale = 1,
 };*/
 
-enum cervezas
+enum Cervezas
 {
 	Rubia = 1,
 	Porter = 2,
@@ -52,7 +53,7 @@ enum cervezas
 	Irish_Red = 5
 }; 
 
-enum tiempos 
+enum Tiempos 
 {
 	Maceracion = 0,
 	Coccion = 1,

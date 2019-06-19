@@ -1,10 +1,16 @@
 #include "cLupulos.h"
 
-cLupulos::cLupulos(): Alfa_Acidos(0),Tiempo_Hervor(0) {
+cLupulos::cLupulos(): cInsumos(), Alfa_Acidos(0), Tiempo_Hervor(0)
+{
 
 }
 
+cLupulos::cLupulos(string nombre, float Cantidad, float Costo, const float AlfaAcidos, int TiempoHervor) : cInsumos(nombre, Cantidad, Costo), Alfa_Acidos(AlfaAcidos), Tiempo_Hervor(TiempoHervor)
+{
 
-cLupulos::~cLupulos() {
+}
+
+cLupulos::~cLupulos()
+{
 
 }

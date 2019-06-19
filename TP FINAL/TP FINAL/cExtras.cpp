@@ -1,24 +1,24 @@
 #include "cExtras.h"
 
-cExtras::cExtras(){ 
-}
-
-cExtras::cExtras(const string nombre, float cant, float cost, int tiempo, int temperatura) :cInsumos(nombre) 
+cExtras::cExtras() : cInsumos()
 {
-	Cantidad = cant;
-	Costo = cost;
-	Tiempo_Hervor = tiempo;
-	Temperatura = temperatura;
-}
-
-cExtras::cExtras(string nombre, float cant, float cost) :cInsumos(nombre)
-{
-	Cantidad = cant;
-	Costo = cost;
 	Tiempo_Hervor = 0;
 	Temperatura = 0;
 }
 
-cExtras::~cExtras() {
+cExtras::cExtras(string nombre, float Cantidad, float Costo) :cInsumos(nombre, Cantidad, Costo)
+{
+	Tiempo_Hervor = 0;
+	Temperatura = 0;
+}
+
+cExtras::cExtras(string nombre, float Cantidad, float Costo, int Tiempo_Hervor, int Temperatura) :cInsumos(nombre, Cantidad, Costo)
+{
+	this->Tiempo_Hervor = Tiempo_Hervor;
+	this->Temperatura = Temperatura;
+}
+
+cExtras::~cExtras()
+{
 
 }

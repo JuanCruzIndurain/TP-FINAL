@@ -4,15 +4,13 @@
 
 class cOllaMaceracion : public cOlla
 {
-
-public:
-	cOllaMaceracion();
-	virtual ~cOllaMaceracion();
-	void Hacer_Algo();
-	void agregar(float agua, float malta) { return; }
-
 private:
 	string Filtro;
 	string Remo;
 
+public:
+	cOllaMaceracion();
+	virtual ~cOllaMaceracion();
+	void Agregar(float Agua, float Malta);
+	void Hacer_Algo();
 };
