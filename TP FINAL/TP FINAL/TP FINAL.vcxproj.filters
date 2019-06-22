@@ -21,9 +21,6 @@
     <ClInclude Include="cFermentador.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cInsumos.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cLupulos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,15 +51,18 @@
     <ClInclude Include="cLista.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cProceso.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cInsumo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cExtras.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cFermentador.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cInsumos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cLupulos.cpp">
@@ -90,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cInsumo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

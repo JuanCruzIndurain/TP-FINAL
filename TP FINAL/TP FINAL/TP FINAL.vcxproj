@@ -127,7 +127,7 @@
   <ItemGroup>
     <ClInclude Include="cExtras.h" />
     <ClInclude Include="cFermentador.h" />
-    <ClInclude Include="cInsumos.h" />
+    <ClInclude Include="cInsumo.h" />
     <ClInclude Include="cLista.h" />
     <ClInclude Include="cLupulos.h" />
     <ClInclude Include="cMalta.h" />
@@ -138,11 +138,12 @@
     <ClInclude Include="cReceta.h" />
     <ClInclude Include="cSimulador.h" />
     <ClInclude Include="Enum.h" />
+    <ClInclude Include="cProceso.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cExtras.cpp" />
     <ClCompile Include="cFermentador.cpp" />
-    <ClCompile Include="cInsumos.cpp" />
+    <ClCompile Include="cInsumo.cpp" />
     <ClCompile Include="cLupulos.cpp" />
     <ClCompile Include="cMalta.cpp" />
     <ClCompile Include="cOlla.cpp" />

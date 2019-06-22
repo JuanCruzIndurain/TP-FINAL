@@ -12,5 +12,5 @@ public:
 	cOllaMaceracion();
 	virtual ~cOllaMaceracion();
 	void Agregar(float Agua, float Malta);
-	void Hacer_Algo();
+	void Hacer_Algo(float agua, float malta, float mosto, float temperatura);
 };

@@ -3,19 +3,13 @@
 cReceta::cReceta()
 {
 	Nombre = "";
-	Tiempos[Maceracion] = 0;
-	Tiempos[Coccion] = 1;
-	Tiempos[Fermentacion] = 2;
-	Cantidades[0] = 0;
-	Cantidades[1] = 1;
-	Cantidades[2] = 2;
 	Graduacion_Alcoholica = 0;
 	IBU = 0;
 
 	Fermentador = new cFermentador();
-	Olla[0] = new cOlla();
-	Olla[1] = new cOlla();
-	Olla[2] = new cOlla();
+	Olla[0] = NULL;
+	Olla[1] = NULL;
+	Olla[2] = NULL;
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -23,15 +17,9 @@ cReceta::cReceta()
 	}
 }
 
-cReceta::cReceta(string Nombre, float TiempoMaceracion, float TiempoCoccion, float TiempoFermentacion, int Cantidad0, int Cantidad1, int Cantidad2, float Graduacion_Alcoholica, float IBU, cFermentador* Fermentador, cOlla* Olla_Agua, cOlla* Olla_Maceracion, cOlla* Olla_Coccion)
+cReceta::cReceta(string Nombre, float Graduacion_Alcoholica, float IBU, cFermentador* Fermentador, cOllaAgua* Olla_Agua, cOllaMaceracion* Olla_Maceracion, cOllaCoccion* Olla_Coccion)
 {
 	this->Nombre = Nombre;
-	Tiempos[Maceracion] = TiempoMaceracion;
-	Tiempos[Coccion] = TiempoCoccion;
-	Tiempos[Fermentacion] = TiempoFermentacion;
-	Cantidades[0] = Cantidad0;
-	Cantidades[1] = Cantidad1;
-	Cantidades[2] = Cantidad2;
 	this->Graduacion_Alcoholica = Graduacion_Alcoholica;
 	this->IBU = IBU;
 	this->Fermentador = Fermentador;
@@ -48,4 +36,38 @@ cReceta::~cReceta()
 void cReceta::Imprimir_Info() const
 {
 	cout << "Nombre Cerveza Elaborada: " << Nombre << endl << "IBU: " << IBU << endl << "Graduacion Alcoholica: " << Graduacion_Alcoholica << endl;
+}
+
+void cReceta::simular()
+{
+	cOllaAgua *Olla_Agua = dynamic_cast<cOllaAgua*>(Olla[Agua]);
+	cOllaMaceracion *Olla_Maceracion = dynamic_cast<cOllaMaceracion*>(Olla[Maceracion]);
+	cOllaCoccion *Olla_Coccion = dynamic_cast<cOllaCoccion*>(Olla[Coccion]);
+	for (int i = 0; i < Procesos->getCA(); i++) 
+	{
+		switch (Procesos->getItem(i)->Tipo)
+		{
+		case Calentar_Agua:
+		{
+			Olla_Agua->Agregar(Procesos->getItem(i)->Cant_Agua);
+			break;
+		}
+		case Maceracion:
+		{
+			break;
+		}
+		case Lavado:
+		{
+			break;
+		}
+		case Coccion:
+		{
+			break;
+		}
+		case Fermentacion: 
+		{
+			break;
+		}
+		}
+	}
 }

@@ -53,9 +53,12 @@ enum Cervezas
 	Irish_Red = 5
 }; 
 
-enum Tiempos 
+enum ProcesosyOllas
 {
-	Maceracion = 0,
-	Coccion = 1,
-	Fermentacion = 2
+	Agua = 0,
+	Calentar_Agua = 0,
+	Maceracion = 1,
+	Coccion = 2,
+	Lavado = 3,
+	Fermentacion = 4
 };

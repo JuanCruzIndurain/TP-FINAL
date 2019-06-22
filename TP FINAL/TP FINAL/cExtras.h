@@ -1,8 +1,8 @@
 #pragma once
 
-#include "cInsumos.h"
+#include "cInsumo.h"
 
-class cExtras : public cInsumos
+class cExtras : public cInsumo
 {
 private:
 	int Tiempo_Hervor;

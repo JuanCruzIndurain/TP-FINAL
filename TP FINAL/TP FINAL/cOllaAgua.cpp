@@ -15,7 +15,7 @@ cOllaAgua::~cOllaAgua()
 
 }
 
-void cOllaAgua::Hacer_Algo()
+void cOllaAgua::Hacer_Algo(float agua, float malta, float mosto, float temperatura)
 {
 
 }

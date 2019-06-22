@@ -1,8 +1,8 @@
 #pragma once
 
-#include "cInsumos.h"
+#include "cInsumo.h"
 
-class cLupulos : public cInsumos
+class cLupulos : public cInsumo
 {
 private:
 	const float Alfa_Acidos;

@@ -2,7 +2,6 @@
 
 cSimulador::cSimulador()
 {
-	Recetas = new cListaT<cReceta>(5);
 	cReceta *Porter = new cReceta();
 	cExtras* Extra = new cExtras("Agua", 34.8, 2, 0, 60);
 	Porter->Insumos->AgregarItem(Extra);
@@ -25,6 +24,12 @@ cSimulador::cSimulador()
 	Extra = new cExtras("Irish Moss", 5, 2.2);
 	Porter->Insumos->AgregarItem(Extra);
 	Extra = new cExtras("Levadura Fermentis", 11.5, 4.7);
+	cProceso *Proceso = new cProceso(67, 0, 16.5, Calentar_Agua);
+	Porter->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(67, 60, 16.5, Maceracion);
+	Porter->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(72, 30, 19.8, Maceracion);
+	Porter->Procesos->AgregarItem(Proceso);
 }
 
 cSimulador::~cSimulador()
@@ -56,15 +61,11 @@ void cSimulador::Simular(string Tipo)
 		throw new exception("No se encuentra la receta pedida");
 	}
 
-	cOlla *OllaAgua = new cOlla();	//en la olla de agua se agrega una cierta cantidad de agua y se calienta hasta 70°C
-	cOlla *OllaMaceracion = new cOlla(); //en la olla de maceracion pongo malta y agrego el agua calentada previamente (se deja macerar 1.5hr)
-	cOlla *Olla_Lupulos = new cOlla();
 
-	cOllaAgua *Olla_Agua = dynamic_cast<cOllaAgua*>(OllaAgua);
 
 	if (Olla_Agua != NULL)
 	{
-		cInsumos *agua = Cerveza->Insumos->BuscarItem("Agua");
+		cInsumo *agua = Cerveza->Insumos->BuscarItem("Agua");
 		cExtras *Agua = dynamic_cast<cExtras*>(agua);
 		Olla_Agua->Agregar(Agua->getCantidad()); //cargo agua a la olla, la cantidad podría variar tmb dependiendo de la cantidad de cerveza pedida, por ahora queda constante
 		Olla_Agua->Calentar(Agua->getTemperatura()); //caliento el agua a 70°C

@@ -10,7 +10,7 @@ cOllaCoccion::~cOllaCoccion()
 
 }
 
-void cOllaCoccion::Hacer_Algo()
+void cOllaCoccion::Hacer_Algo(float agua, float malta, float mosto, float temperatura)
 {
 
 }

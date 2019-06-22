@@ -1,8 +1,8 @@
 #pragma once
 
-#include "cInsumos.h"
+#include "cInsumo.h"
 
-class cMalta : public cInsumos
+class cMalta : public cInsumo
 {
 private:
 	const int EBC;

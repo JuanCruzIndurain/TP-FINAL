@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class cInsumos
+class cInsumo
 {
 protected:
 	float Cantidad;
@@ -12,9 +12,9 @@ protected:
 	const string Nombre;
 
 public:
-	cInsumos();
-	cInsumos(string nombre, float Cantidad, float Costo);
-	virtual ~cInsumos();
+	cInsumo();
+	cInsumo(string nombre, float Cantidad, float Costo);
+	virtual ~cInsumo();
 	float getCantidad() const { return Cantidad; }
 	float getCosto() const { return Costo; }
 	string getNombre() const { return Nombre; }

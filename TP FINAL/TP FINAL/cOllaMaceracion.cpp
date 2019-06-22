@@ -16,7 +16,7 @@ void cOllaMaceracion::Agregar(float Agua, float Malta)
 
 }
 
-void cOllaMaceracion::Hacer_Algo()
+void cOllaMaceracion::Hacer_Algo(float agua, float malta, float mosto, float temperatura)
 {
 
 }
