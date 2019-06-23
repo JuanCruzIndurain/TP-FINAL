@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{10C84319-1BBA-426C-907F-973EFCC1FF8E}</ProjectGuid>
     <RootNamespace>TPFINAL</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -139,6 +139,7 @@
     <ClInclude Include="cSimulador.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="cProceso.h" />
+    <ClInclude Include="ExcesoCapacidad.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cExtras.cpp" />

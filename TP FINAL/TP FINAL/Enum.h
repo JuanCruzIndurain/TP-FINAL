@@ -46,12 +46,8 @@ enum IPA {
 
 enum Cervezas
 {
-	Rubia = 1,
-	Porter = 2,
-	Honey = 3,
-	IPA = 4,
-	Irish_Red = 5
-}; 
+	Rubia = 1, Porter, Honey, IPA, Irish_Red
+};
 
 enum ProcesosyOllas
 {
@@ -61,4 +57,9 @@ enum ProcesosyOllas
 	Coccion = 2,
 	Lavado = 3,
 	Fermentacion = 4
+};
+
+enum Filtros
+{
+	Bolsa_Filtrado = 0, Falso_Fondo, Chupapalmer
 };

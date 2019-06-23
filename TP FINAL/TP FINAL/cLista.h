@@ -93,7 +93,7 @@ bool cListaT<T>::AgregarItem(T * item)
 
 	if (CA < TAM)
 		vector[CA++] = item;
-	else throw new exception("No hay tama�o suficiente para agregar el item");;
+	else throw new exception("No hay tamanio suficiente para agregar el item");;
 	return true;
 }
 

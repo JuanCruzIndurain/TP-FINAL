@@ -15,19 +15,16 @@ cOllaAgua::~cOllaAgua()
 
 }
 
-void cOllaAgua::Hacer_Algo(float agua, float malta, float mosto, float temperatura)
+float cOllaAgua::Hacer_Algo(cProceso* Proceso, float)
 {
-
-}
-
-void cOllaAgua::Agregar(float Agua)
-{
-	Cantidad_Actual = Agua;
-	Hacer_Algo();
-}
-
-void cOllaAgua::Calentar(float Temperatura)
-{
-	this->Tempertatura = Temperatura;
-	Hacer_Algo();
+	if (Proceso->Cant_Usada <= Capacidad)
+		Cantidad_Actual = Proceso->Cant_Usada;
+	cout << "/n";
+	for (int i = (int)Temperatura; i < (int)Proceso->Temperatura + 1; i++)
+	{
+		Temperatura = (float)i;
+		cout << "/rCalentado... " + to_string(i) + "C";
+		Generador_Tiempo(1);
+	}
+	return Cantidad_Actual;
 }

@@ -33,5 +33,3 @@ public:
 	void Imprimir_Info() const;
 	void simular();
 };
-
-//cListaT<cInsumos> *Insumos = new cListaT<cInsumos>(); //la lleno con la totalidad de los insumos

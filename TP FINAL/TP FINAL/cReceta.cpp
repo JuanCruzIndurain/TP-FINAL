@@ -43,17 +43,18 @@ void cReceta::simular()
 	cOllaAgua *Olla_Agua = dynamic_cast<cOllaAgua*>(Olla[Agua]);
 	cOllaMaceracion *Olla_Maceracion = dynamic_cast<cOllaMaceracion*>(Olla[Maceracion]);
 	cOllaCoccion *Olla_Coccion = dynamic_cast<cOllaCoccion*>(Olla[Coccion]);
-	for (int i = 0; i < Procesos->getCA(); i++) 
+	for (unsigned int i = 0; i < Procesos->getCA(); i++) 
 	{
 		switch (Procesos->getItem(i)->Tipo)
 		{
 		case Calentar_Agua:
 		{
-			Olla_Agua->Agregar(Procesos->getItem(i)->Cant_Agua);
+			Olla_Agua->Hacer_Algo(Procesos->getItem(i), 0);
 			break;
 		}
 		case Maceracion:
 		{
+			
 			break;
 		}
 		case Lavado:

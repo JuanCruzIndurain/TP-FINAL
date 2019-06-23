@@ -2,20 +2,15 @@
 
 cOlla::cOlla() : Capacidad(25), Material("Aluminio")
 {
-	Tempertatura = 24;
+	Temperatura = 24;
 }
 
 cOlla::cOlla(const float capacidad, const string material, float Temperatura) : Capacidad(capacidad), Material(material)
 {
-	this->Tempertatura = Temperatura;
+	this->Temperatura = Temperatura;
 }
 
 cOlla::~cOlla()
-{
-
-}
-
-void cOlla::Hacer_Algo()
 {
 
 }

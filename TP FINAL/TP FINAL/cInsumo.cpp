@@ -1,18 +1,18 @@
-#include "cInsumos.h"
+#include "cInsumo.h"
 
-cInsumos::cInsumo() : Nombre("")
+cInsumo::cInsumo() : Nombre("")
 {
 	Cantidad = 0;
 	Costo = 0;
 }
 
-cInsumos::cInsumo(string nombre, float Cantidad, float Costo) : Nombre(nombre)
+cInsumo::cInsumo(string nombre, float Cantidad, float Costo) : Nombre(nombre)
 {
 	this->Cantidad = Cantidad;
 	this-> Costo = Costo;
 }
 
-cInsumos::~cInsumo()
+cInsumo::~cInsumo()
 {
 
 }

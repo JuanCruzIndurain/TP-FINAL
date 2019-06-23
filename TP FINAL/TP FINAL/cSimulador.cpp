@@ -2,8 +2,9 @@
 
 cSimulador::cSimulador()
 {
-	cReceta *Porter = new cReceta();
-	cExtras* Extra = new cExtras("Agua", 34.8, 2, 0, 60);
+	Recetas = new cListaT<cReceta>();
+	cReceta* Porter = new cReceta();
+	cExtras* Extra = new cExtras("Agua", (float)34.8, 2, 0, 60);
 	Porter->Insumos->AgregarItem(Extra);
 	cMalta *Malta = new cMalta("Malta Pale", 5000, 160, 7);
 	Porter->Insumos->AgregarItem(Malta);
@@ -21,14 +22,14 @@ cSimulador::cSimulador()
 	Porter->Insumos->AgregarItem(Lupulo);
 	Lupulo = new cLupulos("Styrian Goldings", 20, 4, 6, 0);
 	Porter->Insumos->AgregarItem(Lupulo);
-	Extra = new cExtras("Irish Moss", 5, 2.2);
+	Extra = new cExtras("Irish Moss", 5, (float)2.2);
 	Porter->Insumos->AgregarItem(Extra);
-	Extra = new cExtras("Levadura Fermentis", 11.5, 4.7);
+	Extra = new cExtras("Levadura Fermentis", (float)11.5, (float)4.7);
 	cProceso *Proceso = new cProceso(67, 0, 16.5, Calentar_Agua);
 	Porter->Procesos->AgregarItem(Proceso);
-	Proceso = new cProceso(67, 60, 16.5, Maceracion);
+	Proceso = new cProceso(67, 60, (float)16.5, Maceracion);
 	Porter->Procesos->AgregarItem(Proceso);
-	Proceso = new cProceso(72, 30, 19.8, Maceracion);
+	Proceso = new cProceso(72, 30, (float)19.8, Maceracion);
 	Porter->Procesos->AgregarItem(Proceso);
 }
 
@@ -40,21 +41,9 @@ cSimulador::~cSimulador()
 	}
 }
 
-void cSimulador::Generador_Tiempo(int Cantidad)//simula el tiempo en segundos
-{
-	double Duracion;
-	clock_t comienzo = clock();
-	Duracion = ((double)clock() - comienzo) / (double)CLOCKS_PER_SEC;
-
-	while (Cantidad > Duracion)
-	{
-		Duracion = ((double)clock() - comienzo) / (double)CLOCKS_PER_SEC;
-	}
-}
-
 void cSimulador::Simular(string Tipo)
 {
-	cReceta *Cerveza = Recetas->BuscarItem(Tipo);
+	/*	cReceta *Cerveza = Recetas->BuscarItem(Tipo);
 
 	if (Cerveza == NULL)
 	{
@@ -97,4 +86,4 @@ void cSimulador::Simular(string Tipo)
 	}
 	//DESPUES SIGUE LA COCCION DE MODO SIMILAR A LA MACERACION, AGREGANDO EXTRAS EN VEZ DE LUPULOS
 	//FINALMENTE SE SIMULA EL TIEMPO DE FERMENTACION Y SE IMPRIME EL ESTADO DEL PROCESO Y AL FINAL SE PRESENTAN TODOS LOS DATOS REQUERIDOS
-}
+*/}
