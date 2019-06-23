@@ -5,11 +5,15 @@
 class cOllaCoccion : public cOlla
 {
 private:
-	string Espumadera;
+	string Espumadera = "Espumadera";
+	float Contenido_Actual;
+	int tiempo = 0;
 
 public:
 	cOllaCoccion();
 	virtual ~cOllaCoccion();
 
-	float Hacer_Algo(cProceso* Proceso, float);
+	void Hacer_Algo(cProceso* Proceso, float CantidadAgua);
+	void HervirMosto(float);
+	float getContenido() { return Contenido_Actual; }
 };

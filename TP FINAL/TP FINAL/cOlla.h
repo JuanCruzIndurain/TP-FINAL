@@ -22,7 +22,7 @@ public:
 	float getCapacidad() const { return Capacidad; }
 	string getMaterial() const { return Material; }
 	float getTemperatura() const { return Temperatura; }
-	virtual float Hacer_Algo(cProceso* Proceso, float) = 0; //en cada olla lo voy a usar para manejar la temperatura (que cambia progresivamente durante un tiempo) del contenido y llamar al método agregar
+	virtual void Hacer_Algo(cProceso* Proceso, float) = 0; //en cada olla lo voy a usar para manejar la temperatura (que cambia progresivamente durante un tiempo) del contenido y llamar al método agregar
 
 };
 

@@ -63,3 +63,8 @@ enum Filtros
 {
 	Bolsa_Filtrado = 0, Falso_Fondo, Chupapalmer
 };
+
+enum Metodo_Calculo
+{
+	NOONAN = 0, RAGER, DANIELS, TINSETH, GARETZ, MOSHER
+};

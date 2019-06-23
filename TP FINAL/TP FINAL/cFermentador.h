@@ -1,5 +1,7 @@
- #pragma once
-
+#pragma once
+#include "cProceso.h"
+#include <ctime>
+#include <iostream>
 #include <string>
 
 using namespace	std;
@@ -14,5 +16,10 @@ private:
 
 public:
 	cFermentador();
-	virtual ~cFermentador();
+	cFermentador(float cap, float temp, float vol, string tipo);
+	~cFermentador();
+	void Agregar(float vol);
+	void Fermentar(cProceso* Proceso);
+	void Generador_Tiempo(int Cantidad);
 };
+

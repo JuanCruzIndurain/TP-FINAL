@@ -2,6 +2,24 @@
 
 cSimulador::cSimulador()
 {
+
+	Factores_Aprovechamiento = new float* [6];
+	for (int i = 0; i < 6; i++)
+	{
+		Factores_Aprovechamiento[i] = new float[19];
+	}
+
+	int k = 0;
+
+	for (int i = 0; i < 6; i++)
+	{
+		for (int j = 0; j < 19; i++)
+		{
+			Factores_Aprovechamiento[i][j] = FactorA[k];
+			k++;
+		}
+	}
+
 	Recetas = new cListaT<cReceta>();
 	cReceta* Porter = new cReceta();
 	cExtras* Extra = new cExtras("Agua", (float)34.8, 2, 0, 60);
@@ -39,51 +57,22 @@ cSimulador::~cSimulador()
 	{
 		delete Recetas;
 	}
+
+	if (Factores_Aprovechamiento != NULL)
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			if (Factores_Aprovechamiento[i] != NULL)
+			{
+				delete Factores_Aprovechamiento[i];
+			}
+		}
+
+		delete[] Factores_Aprovechamiento;
+	}
 }
 
 void cSimulador::Simular(string Tipo)
 {
-	/*	cReceta *Cerveza = Recetas->BuscarItem(Tipo);
 
-	if (Cerveza == NULL)
-	{
-		throw new exception("No se encuentra la receta pedida");
-	}
-
-
-
-	if (Olla_Agua != NULL)
-	{
-		cInsumo *agua = Cerveza->Insumos->BuscarItem("Agua");
-		cExtras *Agua = dynamic_cast<cExtras*>(agua);
-		Olla_Agua->Agregar(Agua->getCantidad()); //cargo agua a la olla, la cantidad podría variar tmb dependiendo de la cantidad de cerveza pedida, por ahora queda constante
-		Olla_Agua->Calentar(Agua->getTemperatura()); //caliento el agua a 70°C
-		Olla_Agua->Hacer_Algo(); // cambio la temperatura del agua
-		//aca hay que imprimir el estado del proceso y la temperatura del agua
-	}
-	else
-	{
-		throw new exception("Error al generar olla de agua");
-	}
-
-	cOllaMaceracion *Olla_Maceracion = dynamic_cast<cOllaMaceracion*>(OllaMaceracion);
-
-	if (Olla_Maceracion != NULL)
-	{
-		cMalta *Aux;
-
-		for (int i = 1; i < Cerveza->Cantidades[Maceracion] + 1; i++)
-		{
-			Aux = dynamic_cast<cMalta*>(Cerveza->Insumos->getItem(i));
-			Olla_Maceracion->Agregar(Aux->getCantidad(), 50); //los parametros son cantidad de malta y de agua respectivamente, en realidad va a variar en funcion de la receta y no va a ser un valor fijo
-			Olla_Maceracion->Hacer_Algo();     //aca se simula los cambios de temperatura
-		}
-		//aca hay que imprimir el estado del proceso y la temperatura de la mezcla
-	}
-	else
-	{
-		throw new exception("Error al generar olla de maceracion");
-	}
-	//DESPUES SIGUE LA COCCION DE MODO SIMILAR A LA MACERACION, AGREGANDO EXTRAS EN VEZ DE LUPULOS
-	//FINALMENTE SE SIMULA EL TIEMPO DE FERMENTACION Y SE IMPRIME EL ESTADO DEL PROCESO Y AL FINAL SE PRESENTAN TODOS LOS DATOS REQUERIDOS
-*/}
+}

@@ -3,6 +3,7 @@
 
 int main(void)
 {
+	/*
 	cSimulador *Simulador = new cSimulador();
 	int Tipo;
 
@@ -38,4 +39,8 @@ int main(void)
 
 	delete Simulador;
 	return 0;
+	*/
+	cout << "holaaa" << "\nholisssssss";
+	cout << "\a\rgg";
+	system("pause");
 }

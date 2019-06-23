@@ -15,7 +15,7 @@ cOllaAgua::~cOllaAgua()
 
 }
 
-float cOllaAgua::Hacer_Algo(cProceso* Proceso, float)
+void cOllaAgua::Hacer_Algo(cProceso* Proceso, float)
 {
 	if (Proceso->Cant_Usada <= Capacidad)
 		Cantidad_Actual = Proceso->Cant_Usada;
@@ -26,5 +26,4 @@ float cOllaAgua::Hacer_Algo(cProceso* Proceso, float)
 		cout << "/rCalentado... " + to_string(i) + "C";
 		Generador_Tiempo(1);
 	}
-	return Cantidad_Actual;
 }

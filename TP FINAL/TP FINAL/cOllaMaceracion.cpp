@@ -4,6 +4,8 @@ cOllaMaceracion::cOllaMaceracion() : cOlla()
 {
 	Cant_Agua = 0;
 	Cant_Malta = 0;
+	cont = 0;
+	Mosto = 0;
 }
 
 cOllaMaceracion::~cOllaMaceracion()
@@ -11,46 +13,66 @@ cOllaMaceracion::~cOllaMaceracion()
 
 }
 
-float cOllaMaceracion::Hacer_Algo(cProceso* Proceso, float CantidadAgua)
+void cOllaMaceracion::Hacer_Algo(cProceso* Proceso, float CantidadAgua)
 {
-	float agua = CantidadAgua, cant_malta = Proceso->Cant_Usada;
+	if (CantidadAgua == 0)
+	{
+		if (CantidadAgua > Capacidad)Cant_Agua = Capacidad;
+		else Cant_Agua = CantidadAgua;
+		cout << endl;
+		for (int i = 0; i < 3; i++)
+		{
+			cout << "\rPasando el agua a la olla de maceracion. ";
+			Generador_Tiempo(1);
+			cout << "\rPasando el agua a la olla de maceracion..";
+			Generador_Tiempo(1);
+			cout << "\rPasando el agua a la olla de maceracion...";
+			Generador_Tiempo(1);
+		}
+	}
 	try {
-		if (agua + cant_malta > Capacidad)throw new ExcesoCapacidad();
+		if (Cant_Agua + Proceso->Cant_Usada > Capacidad)throw new ExcesoCapacidad();
 	}
 	catch (ExcesoCapacidad* ERROR) //Se quita el exceso de contenido de la olla
 	{
 		cout << ERROR->what();
-		agua = CantidadAgua - ((CantidadAgua + Proceso->Cant_Usada) - Capacidad) / 2;
-		cant_malta = Proceso->Cant_Usada - ((CantidadAgua + Proceso->Cant_Usada) - Capacidad) / 2;
+		Cant_Agua = CantidadAgua - ((CantidadAgua + Proceso->Cant_Usada) - Capacidad) / 2;
+		Cant_Malta = Proceso->Cant_Usada - ((CantidadAgua + Proceso->Cant_Usada) - Capacidad) / 2;
 	}
-	Cant_Agua = agua;
 	Temperatura = Proceso->Temperatura;
-	cout << "\n";
-	for (float i = 0; i < cant_malta + 0.1; i++)
+	for (float i = 0; i < Cant_Malta + 0.1; i++)
 	{
 		cout << "\rAgregando " + Proceso->Insumo->getNombre() + "... " + to_string(i) + "Kg";
 		Cant_Malta += i;
 		Generador_Tiempo(1);
 		i = (float)0.1;
 	}
-	cout << "\n";
 	for (int i = 0; i < Proceso->Tiempo + 1; i++)
 	{
 		cout << "\rMacerando... " + to_string(i) + "min";
 		Generador_Tiempo(1);
 	}
-	return CantidadAgua;
+	cout << "\r";
 }
 
-float cOllaMaceracion::Filtrar(float CantidadAguaLavado)
+void cOllaMaceracion::Filtrar(float CantidadAguaLavado)
 {
-	cout << "Colocando " + Filtro[rand() % 3] << endl;
+	cout << endl;
 
+	for (int i = 0; i < CantidadAguaLavado + 1; i++)
+	{
+		cout << "\rColocando " + Filtro[rand() % 3] + ".";
+		Generador_Tiempo(1);
+		cout << "\rColocando " + Filtro[rand() % 3] + "..";
+		Generador_Tiempo(1);
+		cout << "\rColocando " + Filtro[rand() % 3] + "...";
+		Generador_Tiempo(1);
+	}
 	for (int i = 0; i < CantidadAguaLavado + 1; i++)
 	{
 		cout << "\rFiltrando con " + Remo + "... " + to_string(i) + "min";
 		Generador_Tiempo(1);
 	}
 
-	return (float)(Cant_Agua*0.9) + CantidadAguaLavado; //Multiplicamos por 0,9 porque al filtrar la malta aprovechamos un 90%
+	Mosto = (float)(Cant_Agua*0.9) + CantidadAguaLavado; //Multiplicamos por 0,9 porque al filtrar la malta aprovechamos un 90% del agua
 }

@@ -12,4 +12,7 @@ public:
 	cLupulos();
 	cLupulos(string nombre, float Cantidad, float Costo, const float AlfaAcidos, int TiempoHervor);
 	virtual ~cLupulos();
+
+	int getTiempoHervor()const { return Tiempo_Hervor; }
+	float getAlfaAcidos()const { return Alfa_Acidos; }
 };

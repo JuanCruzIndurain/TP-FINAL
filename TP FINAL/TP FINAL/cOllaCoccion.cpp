@@ -10,9 +10,51 @@ cOllaCoccion::~cOllaCoccion()
 
 }
 
-float cOllaCoccion::Hacer_Algo(cProceso* Proceso, float CantidadMosto)
+void cOllaCoccion::Hacer_Algo(cProceso* Proceso, float CantidadMosto)
 {
+	float IBU = 0;
 
+	for (int i = tiempo; i < tiempo + Proceso->Tiempo; i++)
+	{
+		cout << "\rCocinando... " << i;
+		if (tiempo = i)
+		{
+			cout << "\n";
+			for (int i = 0; i < 3; i++) 
+			{
+				cout << "\rAgregando. " << Proceso->getNombre() << endl;
+				Generador_Tiempo(1);
+				cout << "\rAgregando.." << Proceso->getNombre() << endl;
+				Generador_Tiempo(1);
+				cout << "\rAgregando.." << Proceso->getNombre() << endl;
+				Generador_Tiempo(1);
+			}
+		}
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		cout << "\rSacando espuma con la " << Espumadera << ".";
+		Generador_Tiempo(1);
+		cout << "\rSacando espuma con la " << Espumadera << "..";
+		Generador_Tiempo(1);
+		cout << "\rSacando espuma con la " << Espumadera << "...";
+		Generador_Tiempo(1);
+	}
+	cout << "\r";
+	tiempo = Proceso->Tiempo;
+}
 
-	return 0;
+void cOllaCoccion::HervirMosto(float temperatura)
+{
+	if (Temperatura < temperatura)
+	{
+		cout << endl;
+		for (float i = Temperatura; i < temperatura; i = i + 1.0) 
+		{
+			Temperatura = i;
+			cout << "\rCalentando mosto... " << i << " C";
+			Generador_Tiempo(1);
+		}
+		cout << "\r";
+	}
 }

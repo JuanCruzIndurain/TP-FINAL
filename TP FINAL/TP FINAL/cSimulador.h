@@ -9,8 +9,8 @@ class cSimulador
 {
 private:
 	cListaT<cReceta> *Recetas;
-	string Nombres[29] = { "Malta Pale", "Malta Vienna", "Malta Biscuit", "Malta Munich", "Malta Trigo", "Malta Centeno", "Malta Cristal", "Malta Chocolate", "Malta Ambar", "Malta Negra", "Malta Melanoidin", "Malta Pilsen", "Copos de Cebada", "Copos de Avena", "Malta Caramel", "Miel", "Sulfato de Calcio", "Cloruro de Calcio", "Irish Moss", "Lupulo Cascade" , "Lupulo EK Goldings", "Lupulo Styrian Goldings", "Lupulo Target", "Lupulo Warrior", "Lupulo Simcoe", "Lupulo Saaz", "Levadura Safale", "Levadura Fermentis", "Levadura Ale" };
-
+	float FactorA[114] = { 5.0,5.0,6.5,8.0,10.3,12.7,15.0,17.2,19.3,21.5,23.7,25.3,28.0,28.5,29.0,29.5,30.0,30.5,31.0,5.0,5.0,6.0,8.0,10.1,12.1,15.3,18.8,22.8,26.9,28.1,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,5.0,5.0,12.0,12.0,15.0,15.0,19.0,19.0,19.0,22.0,22.0,22.0,24.0,24.0,24.0,27.0,27.0,27.0,27.0,0.0,4.6,8.4,11.4,14.0,16.0,17.7,19.1,20.2,21.2,21.9,22.6,23.1,23.5,23.8,24.1,24.3,24.5,24.7,0.0,0.0,0.0,2.0,5.0,8.0,11.0,14.0,16.0,18.0,19.0,20.0,20.0,21.0,21.0,22.0,23.0,23.0,0.0,3.5,6.1,8.7,9.9,11.2,12.4,13.4,14.3,15.3,15.9,16.6,17.2,17.8,18.4,19.0,19.6,20.2,20.8 };
+	float** Factores_Aprovechamiento;
 
 public:
 	cSimulador();
