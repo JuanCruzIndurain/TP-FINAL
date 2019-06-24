@@ -12,10 +12,16 @@ cExtras::cExtras(string nombre, float Cantidad, float Costo) :cInsumo(nombre, Ca
 	Temperatura = 0;
 }
 
-cExtras::cExtras(string nombre, float Cantidad, float Costo, int Tiempo_Hervor, int Temperatura) :cInsumo(nombre, Cantidad, Costo)
+cExtras::cExtras(string nombre, float Cantidad, float Costo, int Tiempo_Hervor) : cInsumo(nombre, Cantidad, Costo)
 {
 	this->Tiempo_Hervor = Tiempo_Hervor;
-	this->Temperatura = Temperatura;
+	Temperatura = 0;
+}
+
+cExtras::cExtras(string nombre, float Cantidad, float Costo, int tiempo_Hervor, int temperatura) :cInsumo(nombre, Cantidad, Costo)
+{
+	Tiempo_Hervor = tiempo_Hervor;
+	Temperatura = temperatura;
 }
 
 cExtras::~cExtras()

@@ -8,6 +8,14 @@ cOllaMaceracion::cOllaMaceracion() : cOlla()
 	Mosto = 0;
 }
 
+cOllaMaceracion::cOllaMaceracion(const float capacidad, const string material, float Temperatura) : cOlla(capacidad, material, Temperatura)
+{
+	cont = 0;
+	Cant_Agua = 0;
+	Cant_Malta = 0;
+	Mosto = 0;
+}
+
 cOllaMaceracion::~cOllaMaceracion()
 {
 
@@ -40,12 +48,12 @@ void cOllaMaceracion::Hacer_Algo(cProceso* Proceso, float CantidadAgua)
 		Cant_Malta = Proceso->Cant_Usada - ((CantidadAgua + Proceso->Cant_Usada) - Capacidad) / 2;
 	}
 	Temperatura = Proceso->Temperatura;
-	for (float i = 0; i < Cant_Malta + 0.1; i++)
+	for (int i = 0; i < (int)Proceso->Cant_Usada/1000;)
 	{
 		cout << "\rAgregando " + Proceso->Insumo->getNombre() + "... " + to_string(i) + "Kg";
 		Cant_Malta += i;
 		Generador_Tiempo(1);
-		i = (float)0.1;
+		i += 1;
 	}
 	for (int i = 0; i < Proceso->Tiempo + 1; i++)
 	{

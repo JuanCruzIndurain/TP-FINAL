@@ -31,10 +31,10 @@ void Generador_Tiempo(int Cantidad)
 {
 	double Duracion;
 	clock_t comienzo = clock();
-	Duracion = ((double)clock() - comienzo) / (double)CLOCKS_PER_SEC;
+	Duracion = ((double)clock() - comienzo)*10 / (double)CLOCKS_PER_SEC;
 
 	while (Cantidad > Duracion)
 	{
-		Duracion = ((double)clock() - comienzo) / (double)CLOCKS_PER_SEC;
+		Duracion = ((double)clock() - comienzo)*10 / (double)CLOCKS_PER_SEC;
 	}
 }

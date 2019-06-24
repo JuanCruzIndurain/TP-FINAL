@@ -5,9 +5,9 @@ cOllaAgua::cOllaAgua() : cOlla()
 	Cantidad_Actual = 0;
 }
 
-cOllaAgua::cOllaAgua(const float capacidad, const string material, float Temperatura, float Cantidad_Actual) : cOlla(capacidad, material, Temperatura)
+cOllaAgua::cOllaAgua(const float capacidad, const string material, float Temperatura) : cOlla(capacidad, material, Temperatura)
 {
-	this->Cantidad_Actual = Cantidad_Actual;
+	this->Cantidad_Actual = 0;
 }
 
 cOllaAgua::~cOllaAgua()
@@ -19,11 +19,11 @@ void cOllaAgua::Hacer_Algo(cProceso* Proceso, float)
 {
 	if (Proceso->Cant_Usada <= Capacidad)
 		Cantidad_Actual = Proceso->Cant_Usada;
-	cout << "/n";
+	cout << "\n";
 	for (int i = (int)Temperatura; i < (int)Proceso->Temperatura + 1; i++)
 	{
 		Temperatura = (float)i;
-		cout << "/rCalentado... " + to_string(i) + "C";
+		cout << "\rCalentado... " + to_string(i) + "C";
 		Generador_Tiempo(1);
 	}
 }

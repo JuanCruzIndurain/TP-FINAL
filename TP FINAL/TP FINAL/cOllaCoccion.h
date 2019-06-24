@@ -11,7 +11,8 @@ private:
 
 public:
 	cOllaCoccion();
-	virtual ~cOllaCoccion();
+	cOllaCoccion(const float capacidad, const string material, float Temperatura);
+	~cOllaCoccion();
 
 	void Hacer_Algo(cProceso* Proceso, float CantidadAgua);
 	void HervirMosto(float);

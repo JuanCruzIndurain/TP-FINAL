@@ -56,7 +56,8 @@ enum ProcesosyOllas
 	Maceracion = 1,
 	Coccion = 2,
 	Lavado = 3,
-	Fermentacion = 4
+	Fermentacion = 4,
+	Embotellado = 5
 };
 
 enum Filtros

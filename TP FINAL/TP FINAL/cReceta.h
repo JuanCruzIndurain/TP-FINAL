@@ -28,7 +28,7 @@ private:
 
 public:
 	cReceta();
-	cReceta(int Metodo_Calculo, float **fa, float densidad_final, float original_gravity, string Nombre, cFermentador* Fermentador, cOllaAgua* Olla_Agua, cOllaMaceracion* Olla_Maceracion, cOllaCoccion* Olla_Coccion);
+	cReceta(int Metodo_Calculo, float **fa, float densidad_final, float original_gravity, string Nombre);
 	virtual ~cReceta();
 	string getNombre() const { return Nombre; }
 	void Imprimir_Info() const;

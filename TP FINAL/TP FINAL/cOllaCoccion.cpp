@@ -5,6 +5,11 @@ cOllaCoccion::cOllaCoccion() : cOlla()
 	Espumadera = "";
 }
 
+cOllaCoccion::cOllaCoccion(const float capacidad, const string material, float Temperatura) : cOlla(capacidad, material, Temperatura)
+{
+	this->Contenido_Actual = 0;
+}
+
 cOllaCoccion::~cOllaCoccion()
 {
 
@@ -14,7 +19,7 @@ void cOllaCoccion::Hacer_Algo(cProceso* Proceso, float CantidadMosto)
 {
 	float IBU = 0;
 
-	for (int i = tiempo; i < tiempo + Proceso->Tiempo; i++)
+	for (int i = tiempo; i < tiempo + Proceso->Tiempo + 1; i++)
 	{
 		cout << "\rCocinando... " << i;
 		if (tiempo = i)

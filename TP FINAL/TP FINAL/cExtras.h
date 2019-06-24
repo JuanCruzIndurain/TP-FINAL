@@ -11,8 +11,9 @@ private:
 public:
 	cExtras();
 	cExtras(string nombre, float Cantidad, float Costo);
-	cExtras(string nombre, float Cantidad, float Costo, int Tiempo_Hervor, int Temperatura);
+	cExtras(string nombre, float Cantidad, float Costo, int Tiempo_Hervor);
+	cExtras(string nombre, float Cantidad, float Costo, int tiempo_Hervor, int temperatura);
+	~cExtras();
 	int getTiempo() const { return Tiempo_Hervor; }
 	int getTemperatura() const { return Temperatura; }
-	virtual ~cExtras();
 };

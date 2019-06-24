@@ -10,5 +10,5 @@ private:
 public:
 	cMalta();
 	cMalta(string nombre, float Cantidad, float Costo, const int ebc);
-	virtual ~cMalta();
+	~cMalta();
 };

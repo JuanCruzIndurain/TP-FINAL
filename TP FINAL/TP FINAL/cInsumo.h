@@ -14,8 +14,9 @@ protected:
 public:
 	cInsumo();
 	cInsumo(string nombre, float Cantidad, float Costo);
-	virtual ~cInsumo();
+	~cInsumo();
 	float getCantidad() const { return Cantidad; }
 	float getCosto() const { return Costo; }
 	string getNombre() const { return Nombre; }
+	virtual int getTiempoHervor()const { return 0; }
 };

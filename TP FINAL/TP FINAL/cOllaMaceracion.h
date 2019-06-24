@@ -12,6 +12,7 @@ private:
 
 public:
 	cOllaMaceracion();
+	cOllaMaceracion(const float capacidad, const string material, float Temperatura);
 	~cOllaMaceracion();
 	void Hacer_Algo(cProceso* Proceso, float CantidadAgua);
 	float getMosto() { return Mosto; }

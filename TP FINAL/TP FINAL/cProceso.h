@@ -7,6 +7,8 @@ class cProceso
 	const float Temperatura;
 	const float Tiempo;
 	const float Cant_Usada; //La cantidad de insumo utilizada en el proceso
+	static int ID;
+	const int IDotro;
 	cInsumo* Insumo;
 	friend class cReceta;
 	friend class cOllaAgua;
@@ -15,7 +17,13 @@ class cProceso
 	friend class cFermentador;
 
 public:
-	cProceso(float cant_usada = 0, float temp = 0, float tiempo = 0, float agua = 0, int tipo = 0, string nombre = "", float Cantidad = 0, float Costo = 0) :Temperatura(temp), Tiempo(tiempo), Tipo(tipo), Cant_Usada(cant_usada) { Insumo = new cInsumo(nombre, Cantidad, Costo); }
+	cProceso(float cant_usada = 0, float temp = 0, float tiempo = 0, int tipo = 0, cInsumo * insumo = NULL) :Temperatura(temp), Tiempo(tiempo), Tipo(tipo), Cant_Usada(cant_usada), IDotro(ID)
+	{
+		Insumo = insumo;
+		ID++;
+	}
 	~cProceso() { delete Insumo; }
-	string getNombre() { return ""; }
+	string getNombre()const { return to_string(IDotro); }
 };
+
+int cProceso::ID = 0;

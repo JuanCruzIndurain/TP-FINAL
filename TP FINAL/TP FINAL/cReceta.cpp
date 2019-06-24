@@ -11,14 +11,14 @@ cReceta::cReceta()
 	Olla[1] = NULL;
 	Olla[2] = NULL;
 
-	for (int i = 0; i < 4; i++)
-	{
-		//Agregar item
-	}
+	Insumos = NULL;
+	Procesos = NULL;
 }
 
-cReceta::cReceta(int Metodo_Calculo, float** fa, float densidad_final, float original_gravity, string Nombre, cFermentador* Fermentador, cOllaAgua* Olla_Agua, cOllaMaceracion* Olla_Maceracion, cOllaCoccion* Olla_Coccion)
+cReceta::cReceta(int Metodo_Calculo, float** fa, float densidad_final, float original_gravity, string Nombre)
 {
+	Insumos = new cListaT<cInsumo>(50);
+	Procesos = new cListaT<cProceso>(50);
 	this->Metodo_Calculo = Metodo_Calculo;
 	this->Original_Gravity = original_gravity;
 	this->Densidad_Final = densidad_final;
@@ -26,9 +26,9 @@ cReceta::cReceta(int Metodo_Calculo, float** fa, float densidad_final, float ori
 	this->Graduacion_Alcoholica = Graduacion_Alcoholica;
 	this->IBU = IBU;
 	this->Fermentador = Fermentador;
-	this->Olla[0] = Olla_Agua;
-	this->Olla[1] = Olla_Maceracion;
-	this->Olla[2] = Olla_Coccion;
+	this->Olla[Agua] = new cOllaAgua(500, "Acero Inoxidable", TA);
+	this->Olla[Maceracion] = new cOllaMaceracion(500, "Aluminio", TA);
+	this->Olla[Coccion] = new cOllaCoccion(500, "Aluminio", TA);
 	this->FA = fa;
 }
 
@@ -49,7 +49,7 @@ void cReceta::simular()
 	cOllaCoccion *Olla_Coccion = dynamic_cast<cOllaCoccion*>(Olla[Coccion]);
 	for (unsigned int i = 0; i < Procesos->getCA(); i++) 
 	{
-		bool flag = false;
+		bool flagCoccion = false, flagFermentacion = false;
 		switch (Procesos->getItem(i)->Tipo)
 		{
 		case Calentar_Agua:
@@ -70,9 +70,14 @@ void cReceta::simular()
 		}
 		case Coccion:
 		{
+			if (flagCoccion == false)
+			{
+				Olla_Coccion->HervirMosto(100);
+				flagCoccion = true;
+			}
 			if (Procesos->getItem(i)->Cant_Usada > 0)
 			{
-				cInsumo* Insumo = new cInsumo();
+				cInsumo* Insumo = new cLupulos();
 				cLupulos* Lupulo = new cLupulos();
 				Insumo = Procesos->getItem(i)->Insumo;
 				Lupulo = dynamic_cast<cLupulos*>(Insumo);
@@ -92,10 +97,15 @@ void cReceta::simular()
 
 		case Fermentacion:
 		{
-			if (flag == false)
+			if (flagFermentacion == false)
 			{
 				Fermentador->Agregar(Olla_Coccion->getContenido());
-				flag = true;
+
+
+				//Falta setear la cantidad de la olla coccion a 0
+
+
+				flagFermentacion = true;
 			}
 			else 
 			{
@@ -103,6 +113,19 @@ void cReceta::simular()
 				else Fermentador->Fermentar(Procesos->getItem(i));
 			}
 			break;
+		}
+
+		case Embotellado:
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				cout << "\rEmbotellando. " << endl;
+				Generador_Tiempo(1);
+				cout << "\rEmbotellando.." << endl;
+				Generador_Tiempo(1);
+				cout << "\rEmbotellando.." << endl;
+				Generador_Tiempo(1);
+			}
 		}
 
 		default:
