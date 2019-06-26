@@ -3,7 +3,7 @@
 cSimulador::cSimulador()
 {
 
-	/*Factores_Aprovechamiento = new float* [6];
+	Factores_Aprovechamiento = new float* [6];
 	for (int i = 0; i < 6; i++)
 	{
 		Factores_Aprovechamiento[i] = new float[19];
@@ -13,12 +13,12 @@ cSimulador::cSimulador()
 
 	for (int i = 0; i < 6; i++)
 	{
-		for (int j = 0; j < 19; i++)
+		for (int j = 0; j < 19; j++)
 		{
 			Factores_Aprovechamiento[i][j] = FactorA[k];
 			k++;
 		}
-	}*/
+	}
 
 	Recetas = new cListaT<cReceta>(1);
 

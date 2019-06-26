@@ -3,6 +3,8 @@
 
 int main(void)
 {
+	srand(time(0));
+
 	cSimulador *Simulador = new cSimulador();
 	int Tipo;
 

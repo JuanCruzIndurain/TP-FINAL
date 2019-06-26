@@ -22,8 +22,8 @@ cFermentador::~cFermentador()
 void cFermentador::Agregar(float vol)
 {
 	cout << endl;
-	if (Volumen_Actual + vol > Capacidad)Volumen_Actual = Capacidad;
-	else Volumen_Actual += vol;
+	if ((Volumen_Actual + vol) > Capacidad) { Volumen_Actual = Capacidad; }
+	else { Volumen_Actual += vol; }
 	for (int i = 0; i < 3; i++)
 	{
 		cout << "\rCargando. ";

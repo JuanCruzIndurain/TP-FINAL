@@ -26,9 +26,9 @@ cReceta::cReceta(int Metodo_Calculo, float** fa, float densidad_final, float ori
 	this->Graduacion_Alcoholica = Graduacion_Alcoholica;
 	this->IBU = IBU;
 	this->Fermentador = Fermentador;
-	this->Olla[Agua] = new cOllaAgua(500, "Acero Inoxidable", TA);
-	this->Olla[Maceracion] = new cOllaMaceracion(500, "Aluminio", TA);
-	this->Olla[Coccion] = new cOllaCoccion(500, "Aluminio", TA);
+	this->Olla[Agua] = new cOllaAgua(50000, "Acero Inoxidable", TA); //La olla tiene 50 litros (50000 cm3) de capacidad
+	this->Olla[Maceracion] = new cOllaMaceracion(50000, "Aluminio", TA);
+	this->Olla[Coccion] = new cOllaCoccion(50000, "Aluminio", TA);
 	this->FA = fa;
 }
 

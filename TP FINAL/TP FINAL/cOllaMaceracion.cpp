@@ -23,18 +23,18 @@ cOllaMaceracion::~cOllaMaceracion()
 
 void cOllaMaceracion::Hacer_Algo(cProceso* Proceso, float CantidadAgua)
 {
+	cout << endl;
 	if (CantidadAgua == 0)
 	{
 		if (CantidadAgua > Capacidad)Cant_Agua = Capacidad;
 		else Cant_Agua = CantidadAgua;
-		cout << endl;
 		for (int i = 0; i < 3; i++)
 		{
-			cout << "\rPasando el agua a la olla de maceracion. ";
+			cout << "\rPasando el agua a la olla de maceracion.        ";
 			Generador_Tiempo(1);
-			cout << "\rPasando el agua a la olla de maceracion..";
-			Generador_Tiempo(1);
-			cout << "\rPasando el agua a la olla de maceracion...";
+			cout << "\rPasando el agua a la olla de maceracion..       ";
+			Generador_Tiempo(1); 
+			cout << "\rPasando el agua a la olla de maceracion...      ";
 			Generador_Tiempo(1);
 		}
 	}
@@ -48,37 +48,36 @@ void cOllaMaceracion::Hacer_Algo(cProceso* Proceso, float CantidadAgua)
 		Cant_Malta = Proceso->Cant_Usada - ((CantidadAgua + Proceso->Cant_Usada) - Capacidad) / 2;
 	}
 	Temperatura = Proceso->Temperatura;
-	for (int i = 0; i < (int)Proceso->Cant_Usada/1000;)
+	for (int i = 0; i < (int)(Proceso->Cant_Usada/50); i++)
 	{
-		cout << "\rAgregando " + Proceso->Insumo->getNombre() + "... " + to_string(i) + "Kg";
+		cout << "\rAgregando " << Proceso->Insumo->getNombre() << "... " << i * 50 << "Kg                    ";
 		Cant_Malta += i;
 		Generador_Tiempo(1);
-		i += 1;
 	}
-	for (int i = 0; i < Proceso->Tiempo + 1; i++)
+	for (int i = 0; i < Proceso->Tiempo; i++)
 	{
-		cout << "\rMacerando... " + to_string(i) + "min";
+		cout << "\rMacerando... " << i << " min                                                  ";
 		Generador_Tiempo(1);
 	}
-	cout << "\r";
+	cout << "\r                                                                                                  ";
 }
 
 void cOllaMaceracion::Filtrar(float CantidadAguaLavado)
 {
 	cout << endl;
-
+	int a = rand() % 3;
 	for (int i = 0; i < CantidadAguaLavado + 1; i++)
 	{
-		cout << "\rColocando " + Filtro[rand() % 3] + ".";
+		cout << "\rColocando " + Filtro[a] + ".                         ";
 		Generador_Tiempo(1);
-		cout << "\rColocando " + Filtro[rand() % 3] + "..";
+		cout << "\rColocando " + Filtro[a] + "..                        ";
 		Generador_Tiempo(1);
-		cout << "\rColocando " + Filtro[rand() % 3] + "...";
+		cout << "\rColocando " + Filtro[a] + "...                       ";
 		Generador_Tiempo(1);
 	}
 	for (int i = 0; i < CantidadAguaLavado + 1; i++)
 	{
-		cout << "\rFiltrando con " + Remo + "... " + to_string(i) + "min";
+		cout << "\rFiltrando con " + Remo + "... " + to_string(i) + "min                                       ";
 		Generador_Tiempo(1);
 	}
 
