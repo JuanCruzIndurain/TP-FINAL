@@ -8,12 +8,13 @@ cReceta::cReceta()
 	Tipos_Enfriamiento[0] = "";
 	Tipos_Enfriamiento[1] = "";
 	Tipos_Enfriamiento[2] = "";
-	Fermentador = new cFermentador();
+	Fermentador = NULL;
 	Olla[0] = NULL;
 	Olla[1] = NULL;
 	Olla[2] = NULL;
 	Insumos = NULL;
 	Procesos = NULL;
+	FA = NULL;
 }
 
 cReceta::cReceta(int metodo_Calculo, float** fa, float densidad_final, float original_gravity, string Nombre)
@@ -27,8 +28,8 @@ cReceta::cReceta(int metodo_Calculo, float** fa, float densidad_final, float ori
 	Original_Gravity = original_gravity;
 	Densidad_Final = densidad_final;
 	this->Nombre = Nombre;
-	Graduacion_Alcoholica = 6;
-	IBU = 36;
+	Graduacion_Alcoholica = 0;
+	IBU = 0;
 	Fermentador = new cFermentador(50000, TA, 0, Tipos_Enfriamiento[rand() % 3]);
 	Olla[Agua] = new cOllaAgua(50000, "Acero Inoxidable", TA); //La olla tiene 50 litros (50000 cm3) de capacidad
 	Olla[Maceracion] = new cOllaMaceracion(50000, "Aluminio", TA);
@@ -38,7 +39,46 @@ cReceta::cReceta(int metodo_Calculo, float** fa, float densidad_final, float ori
 
 cReceta::~cReceta()
 {
+	if (Procesos != NULL)
+	{
+		delete Procesos;
+	}
 
+	if (Insumos != NULL)
+	{
+		delete Insumos;
+	}
+
+	if (Fermentador != NULL)
+	{
+		delete Fermentador;
+	}
+
+	if (Olla != NULL)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			if (Olla[i] != NULL)
+			{
+				delete Olla[i];
+			}
+		}
+
+		delete[] Olla;
+	}
+
+	if (FA != NULL)
+	{
+		for (int i = 0; i < 6 ; i++)
+		{
+			if (FA[i] != NULL)
+			{
+				delete FA[i];
+			}
+		}
+
+		delete[] FA;
+	}
 }
 
 void cReceta::Imprimir_Info() const
@@ -82,21 +122,28 @@ void cReceta::simular()
 			}
 			if (Procesos->getItem(i)->Cant_Usada > 0)
 			{
-				cInsumo* Insumo = new cLupulos();
 				cLupulos* Lupulo = new cLupulos();
-				Insumo = Procesos->getItem(i)->Insumo;
-				Lupulo = dynamic_cast<cLupulos*>(Insumo);
+				Lupulo = dynamic_cast<cLupulos*>(Procesos->getItem(i)->Insumo);
 
 				if (Lupulo != NULL)
 				{
-					IBU += (Procesos->getItem(i)->Cant_Usada * FA[Metodo_Calculo][(int)(Lupulo->getTiempoHervor() / 5)] * Lupulo->getAlfaAcidos() * 1000) / Olla_Maceracion->getMosto();
+					try
+					{
+						IBU += (Procesos->getItem(i)->Cant_Usada * FA[Metodo_Calculo][(int)(Lupulo->getTiempoHervor() / 5)] * Lupulo->getAlfaAcidos() * 1000) / Olla_Maceracion->getMosto();
+						
+						if (Olla_Maceracion->getMosto() == 0) throw new exception("Division por cero");
+					}
+					catch (exception *ex)
+					{
+						cerr << ex->what() << endl;
+
+						IBU = NULL;
+					}
 				}
 			}
 			
 			Olla_Coccion->Hacer_Algo(Procesos->getItem(i), Olla_Maceracion->getMosto());
-			Olla_Maceracion->setCant_Agua(0);
-			Olla_Maceracion->setCant_Malta(0);
-			Olla_Maceracion->setMosto(0);
+
 			break;
 		}
 
@@ -106,13 +153,13 @@ void cReceta::simular()
 			{
 				Fermentador->Agregar(Olla_Coccion->getContenido());
 
-				for (int i = 0; i < 15; i++)
+				for (int j = 0; j < Procesos->getItem(i)->Tiempo ; j++)
 				{
-					cout << "\rFermentando.   " << i << " dias                            ";
+					cout << "\rFermentando.   " << j << " dias                            ";
 					Generador_Tiempo(1);
-					cout << "\rFermentando..  " << i << " dias                            ";
+					cout << "\rFermentando..  " << j << " dias                            ";
 					Generador_Tiempo(1);
-					cout << "\rFermentando... " << i << " dias                            ";
+					cout << "\rFermentando... " << j << " dias                            ";
 					Generador_Tiempo(1);
 				}
 
@@ -142,6 +189,9 @@ void cReceta::simular()
 			cout << "\nCerveza: " << Nombre << " finalizada" << endl;
 			cout << "IBU: " << IBU << endl;
 			cout << "Graduacion alcoholica: " << Graduacion_Alcoholica << endl;
+
+			Olla_Maceracion->setCant_Agua(0);
+			Olla_Maceracion->setCant_Malta(0);
 
 			system("pause");
 		}

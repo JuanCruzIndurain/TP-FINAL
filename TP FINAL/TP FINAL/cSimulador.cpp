@@ -126,8 +126,7 @@ cSimulador::cSimulador()
 cSimulador::~cSimulador()
 {
 	if (Recetas != NULL)
-	{
-		
+	{	
 		delete Recetas;
 	}
 
