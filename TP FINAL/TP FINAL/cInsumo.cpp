@@ -24,7 +24,7 @@ cInsumo * cInsumo::operator=(cInsumo & p)
 		p.Nombre = Nombre;
 		p.Cantidad = Cantidad;
 		p.Costo = Costo;
-	
+		return &p;
 }
 
 bool cInsumo::operator==(cInsumo & p)
@@ -44,6 +44,11 @@ bool cInsumo::operator!=(cInsumo & p)
 		return true;
 	}
 	return false;
+}
+
+void cInsumo::operator++()
+{
+	Cantidad = Cantidad + 1;
 }
 
 ostream & operator<<(ostream & o, const cInsumo & i)

@@ -28,3 +28,22 @@ cExtras::~cExtras()
 {
 
 }
+
+ostream & operator<<(ostream & o, const cExtras & E)
+{
+	cInsumo &P = (cInsumo&)E;
+	o << P;
+	o << "Tiempo Hervor: " << E.Tiempo_Hervor << endl;
+	return o;
+}
+istream& operator>>(istream &i, cExtras &E)
+{
+	cInsumo &P = (cInsumo&)E;
+	i >> P;
+	int aux;
+	cout << "Ingrese tiempo hervor: " << endl;
+	i >> aux;
+	E.setTiempo_Hervor(aux);
+	return i;
+
+}
