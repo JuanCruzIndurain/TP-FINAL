@@ -25,7 +25,7 @@ enum Filtros
 
 enum Metodo_Calculo
 {
-	NOONAN = 0, RAGER, DANIELS, TINSETH, GARETZ, MOSHER
+	NOONAN = 0,RAGER, DANIELS, TINSETH, GARETZ, MOSHER
 };
 
 enum Tipo_Enfriamiento
