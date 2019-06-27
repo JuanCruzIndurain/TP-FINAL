@@ -23,7 +23,7 @@ cSimulador::cSimulador()
 	Recetas = new cListaT<cReceta>(5);
 
 	//PORTER
-	cReceta* Porter = new cReceta(DANIELS, Factores_Aprovechamiento, 1.011, 1.054, "Porter");
+	cReceta* Porter = new cReceta(DANIELS, Factores_Aprovechamiento, (float)1.011, (float)1.054, "Porter");
 	cExtras* Extra = new cExtras("Agua", (float)34.8, 2, 0, TA);
 	Porter->Insumos->AgregarItem(Extra);
 	cMalta *Malta = new cMalta("Malta Pale", 5000, 160, 7);
@@ -77,7 +77,7 @@ cSimulador::cSimulador()
 	Recetas->AgregarItem(Porter);
 
 	//HONEY
-	cReceta* Honey = new cReceta(NOONAN, Factores_Aprovechamiento, 1.014, 1.058, "Honey");
+	cReceta* Honey = new cReceta(NOONAN, Factores_Aprovechamiento, (float)1.014, (float)1.058, "Honey");
 	Extra = new cExtras("Agua", (float)40.3, 3, 0, TA);
 	Honey->Insumos->AgregarItem(Extra);
 	Malta = new cMalta("Malta Pilsen", 4000, 170, 3);
@@ -123,7 +123,7 @@ cSimulador::cSimulador()
 	Recetas->AgregarItem(Honey);
 	
 	// IRISH RED
-	cReceta* Irish_Red_Ale = new cReceta(GARETZ, Factores_Aprovechamiento, 1.016, 1.055, "Irish Red");
+	cReceta* Irish_Red_Ale = new cReceta(GARETZ, Factores_Aprovechamiento, (float)1.016, (float)1.055, "Irish Red");
 	Extra = new cExtras("Agua", (float)35, 5, 0, TA);
 	Irish_Red_Ale->Insumos->AgregarItem(Extra);
 	Malta = new cMalta("Malta Pale", 4250, 80, 6);
@@ -165,7 +165,7 @@ cSimulador::cSimulador()
 	Recetas->AgregarItem(Irish_Red_Ale);
 
 	// IPA
-	cReceta* IPA = new cReceta(RAGER, Factores_Aprovechamiento, 1.012, 1.040, "IPA");
+	cReceta* IPA = new cReceta(RAGER, Factores_Aprovechamiento, (float)1.012, (float)1.040, "IPA");
 	Extra = new cExtras("Agua", (float)55, 5, 0, TA);
 	IPA->Insumos->AgregarItem(Extra);
 	Malta = new cMalta("Malta Pale", 1750, 70, 6);
@@ -242,7 +242,7 @@ cSimulador::cSimulador()
 	
 	// RUBIA
 
-	cReceta* Rubia = new cReceta(RAGER, Factores_Aprovechamiento, 1.013, 1.050, "Rubia");
+	cReceta* Rubia = new cReceta(RAGER, Factores_Aprovechamiento, (float)1.013, (float)1.050, "Rubia");
 	Extra = new cExtras("Agua", (float)40, 5, 0, TA);
 	Rubia->Insumos->AgregarItem(Extra);
 	Extra = new cExtras("Botella", 20, 10);
