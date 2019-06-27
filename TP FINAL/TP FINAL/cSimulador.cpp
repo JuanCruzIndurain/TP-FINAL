@@ -121,6 +121,48 @@ cSimulador::cSimulador()
 	Proceso = new cProceso(0, TA, 0, Embotellado, Honey->Insumos->BuscarItem("Botella"));
 	Honey->Procesos->AgregarItem(Proceso);
 	Recetas->AgregarItem(Honey);
+	
+	// IRISH RED
+	cReceta* Irish_Red_Ale = new cReceta(GARETZ, Factores_Aprovechamiento, 1.016, 1.055, "Irish Red");
+	Extra = new cExtras("Agua", (float)35, 5, 0, TA);
+	Irish_Red_Ale->Insumos->AgregarItem(Extra);
+	Malta = new cMalta("Malta Pale", 4.250, 80, 6);
+	Irish_Red_Ale->Insumos->AgregarItem(Malta);
+	Malta = new cMalta("Carared", 400, 150, 60);
+	Irish_Red_Ale->Insumos->AgregarItem(Malta);
+	Malta = new cMalta("Copos de cebada", 150, 60, 3);
+	Irish_Red_Ale->Insumos->AgregarItem(Malta);
+	Malta = new cMalta("Malta Ambar", 150, 75, 50);
+	Irish_Red_Ale->Insumos->AgregarItem(Malta);
+	Malta = new cMalta("Malta Black", 60, 150, 1400);
+	Irish_Red_Ale->Insumos->AgregarItem(Malta);
+	Lupulo = new cLupulos("Lupulo East Kent Goldings", 35, 15, 7, 60);
+	Irish_Red_Ale->Insumos->AgregarItem(Lupulo);
+	Extra = new cExtras("Levadura SafAle S-04", 11, (float)2.2, 0);
+	Irish_Red_Ale->Insumos->AgregarItem(Extra);
+	Proceso = new cProceso(15, 67, 0, Calentar_Agua, Irish_Red_Ale->Insumos->BuscarItem("Agua"));
+	Irish_Red_Ale->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Irish_Red_Ale->Insumos->BuscarItem("Malta Pale")->getCantidad(), 67, 0, Maceracion, Irish_Red_Ale->Insumos->BuscarItem("Malta Pale"));
+	Irish_Red_Ale->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Irish_Red_Ale->Insumos->BuscarItem("Carared")->getCantidad(), 67, 0, Maceracion, Irish_Red_Ale->Insumos->BuscarItem("Carared"));
+	Irish_Red_Ale->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Irish_Red_Ale->Insumos->BuscarItem("Copos de cebada")->getCantidad(), 67, 0, Maceracion, Irish_Red_Ale->Insumos->BuscarItem("Copos de cebada"));
+	Irish_Red_Ale->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Irish_Red_Ale->Insumos->BuscarItem("Malta Ambar")->getCantidad(), 67, 0, Maceracion, Irish_Red_Ale->Insumos->BuscarItem("Malta Ambar"));
+	Irish_Red_Ale->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Irish_Red_Ale->Insumos->BuscarItem("Malta Black")->getCantidad(), 67, 91, Maceracion, Irish_Red_Ale->Insumos->BuscarItem("Malta Black"));
+	Irish_Red_Ale->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(15, 67, 15, Lavado, Irish_Red_Ale->Insumos->BuscarItem("Agua"));
+	Irish_Red_Ale->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Irish_Red_Ale->Insumos->BuscarItem("Lupulo East Kent Goldings")->getCantidad(), 100, 60, Coccion, Irish_Red_Ale->Insumos->BuscarItem("Lupulo East Kent Goldings"));
+	Irish_Red_Ale->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Irish_Red_Ale->Insumos->BuscarItem("Levadura SafAle S-04")->getCantidad(), 25, 15, Fermentacion, Irish_Red_Ale->Insumos->BuscarItem("Levadura SafAle S-04"));
+	Irish_Red_Ale->Procesos->AgregarItem(Proceso);
+	Extra = new cExtras("Botella", 20, 10);
+	Irish_Red_Ale->Insumos->AgregarItem(Extra);
+	Proceso = new cProceso(0, TA, 0, Embotellado, Irish_Red_Ale->Insumos->BuscarItem("Botella"));
+	Irish_Red_Ale->Procesos->AgregarItem(Proceso);
+	Recetas->AgregarItem(Irish_Red_Ale);
 }
 
 cSimulador::~cSimulador()
