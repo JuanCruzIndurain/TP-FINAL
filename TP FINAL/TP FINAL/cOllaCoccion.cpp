@@ -37,11 +37,11 @@ void cOllaCoccion::Hacer_Algo(cProceso* Proceso, float CantidadMosto)
 	}
 	for (int i = 0; i < 5; i++)
 	{
-		cout << "\rSacando espuma con la " << Espumadera << ".    ";
+		cout << "\rSacando espuma con la " << Espumadera << ".                                            ";
 		Generador_Tiempo(1);
-		cout << "\rSacando espuma con la " << Espumadera << "..   ";
+		cout << "\rSacando espuma con la " << Espumadera << "..                                           ";
 		Generador_Tiempo(1);
-		cout << "\rSacando espuma con la " << Espumadera << "...  ";
+		cout << "\rSacando espuma con la " << Espumadera << "...                                           ";
 		Generador_Tiempo(1);
 	}
 	tiempo = Proceso->Tiempo;

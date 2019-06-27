@@ -20,7 +20,7 @@ cSimulador::cSimulador()
 		}
 	}
 
-	Recetas = new cListaT<cReceta>(5);
+	Recetas = new cListaT<cReceta>(2);
 
 	//PORTER
 	cReceta* Porter = new cReceta(DANIELS, Factores_Aprovechamiento, 1.011, 1.054, "Porter");
@@ -58,7 +58,7 @@ cSimulador::cSimulador()
 	Porter->Procesos->AgregarItem(Proceso);
 	Proceso = new cProceso(Porter->Insumos->BuscarItem("Malta Negra")->getCantidad(), 67, 0, Maceracion, Porter->Insumos->BuscarItem("Malta Negra"));
 	Porter->Procesos->AgregarItem(Proceso);
-	Proceso = new cProceso(Porter->Insumos->BuscarItem("Malta de Trigo")->getCantidad(), 67, 90, Maceracion, Porter->Insumos->BuscarItem("Malta de Trigo"));
+	Proceso = new cProceso(Porter->Insumos->BuscarItem("Malta de Trigo")->getCantidad(), 67, 91, Maceracion, Porter->Insumos->BuscarItem("Malta de Trigo"));
 	Porter->Procesos->AgregarItem(Proceso);
 	Proceso = new cProceso(15, 77, 15, Lavado, Porter->Insumos->BuscarItem("Agua"));
 	Porter->Procesos->AgregarItem(Proceso);
@@ -75,12 +75,59 @@ cSimulador::cSimulador()
 	Proceso = new cProceso(0, TA, 0, Embotellado, Porter->Insumos->BuscarItem("Botella"));
 	Porter->Procesos->AgregarItem(Proceso);
 	Recetas->AgregarItem(Porter);
+
+	//HONEY
+	cReceta* Honey = new cReceta(NOONAN, Factores_Aprovechamiento, 1.014, 1.058, "Honey");
+	Extra = new cExtras("Agua", (float)40.3, 3, 0, TA);
+	Honey->Insumos->AgregarItem(Extra);
+	Malta = new cMalta("Malta Pilsen", 4000, 170, 3);
+	Honey->Insumos->AgregarItem(Malta);
+	Malta = new cMalta("Malta Caramelo 30", 200, 70, 30);
+	Honey->Insumos->AgregarItem(Malta);
+	Malta = new cMalta("Malta Biscuit", 200, 80, 40);
+	Honey->Insumos->AgregarItem(Malta);
+	Extra = new cExtras("Miel Pura", 1000, 15, 0, TA);
+	Honey->Insumos->AgregarItem(Extra);
+	Lupulo = new cLupulos("Lupulo Amargor Cascade 60", 20, 60, 15, 60);
+	Honey->Insumos->AgregarItem(Lupulo);
+	Extra = new cExtras("Levadura Ale Seca", 11, 20, 0, TA);
+	Honey->Insumos->AgregarItem(Extra);
+	Extra = new cExtras("Clarificante de hervido", 4, 6, 0, TA);
+	Honey->Insumos->AgregarItem(Extra);
+	Extra = new cExtras("Clarificante de madurado", 2, 4, 0, TA);
+	Honey->Insumos->AgregarItem(Extra);
+	Extra = new cExtras("Botella", 20, 10);
+	Honey->Insumos->AgregarItem(Extra);
+	Proceso = new cProceso(25, 65, 0, Calentar_Agua, Honey->Insumos->BuscarItem("Agua"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Honey->Insumos->BuscarItem("Malta Pilsen")->getCantidad(), 65, 0, Maceracion, Honey->Insumos->BuscarItem("Malta Pilsen"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Honey->Insumos->BuscarItem("Malta Caramelo 30")->getCantidad(), 65, 0, Maceracion, Honey->Insumos->BuscarItem("Malta Caramelo 30"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Honey->Insumos->BuscarItem("Malta Biscuit")->getCantidad(), 65, 91, Maceracion, Honey->Insumos->BuscarItem("Malta Biscuit"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(10, 75, 15, Lavado, Honey->Insumos->BuscarItem("Agua"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Honey->Insumos->BuscarItem("Miel Pura")->getCantidad(), 100, 60, Coccion, Honey->Insumos->BuscarItem("Miel Pura"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Honey->Insumos->BuscarItem("Lupulo Amargor Cascade 60")->getCantidad(), 100, 60, Coccion, Honey->Insumos->BuscarItem("Lupulo Amargor Cascade 60"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Honey->Insumos->BuscarItem("Clarificante de hervido")->getCantidad(), 100, 10, Coccion, Honey->Insumos->BuscarItem("Clarificante de hervido"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Honey->Insumos->BuscarItem("Levadura Ale Seca")->getCantidad(), 21, 12, Fermentacion, Honey->Insumos->BuscarItem("Levadura Ale Seca"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(Honey->Insumos->BuscarItem("Clarificante de madurado")->getCantidad(), 21, 12, Fermentacion, Honey->Insumos->BuscarItem("Clarificante de madurado"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Proceso = new cProceso(0, TA, 0, Embotellado, Honey->Insumos->BuscarItem("Botella"));
+	Honey->Procesos->AgregarItem(Proceso);
+	Recetas->AgregarItem(Honey);
 }
 
 cSimulador::~cSimulador()
 {
 	if (Recetas != NULL)
 	{
+		
 		delete Recetas;
 	}
 
