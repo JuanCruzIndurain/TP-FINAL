@@ -26,7 +26,20 @@ public:
 	void Eliminar(string clave);
 	void Eliminar(const T *item);
 	void Eliminar(unsigned int pos);
-
+	T* operator[](string clave) 
+	{
+		if (Pos < TAM)
+			return BuscarItem(clave);
+		else return NULL;
+	}
+	bool operator+(T *item)
+	{
+		return AgregarItem(item);
+	}
+	void operator-(string clave) 
+	{
+		Eliminar(clave);
+	}
 	void Listar();
 	T* BuscarItem(string clave);
 	T* getItem(unsigned int pos);
