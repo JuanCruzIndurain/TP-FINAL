@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	srand(time(0));
+	srand((unsigned int)time(0));
 
 	cSimulador *Simulador = new cSimulador();
 	int Tipo = 0;
