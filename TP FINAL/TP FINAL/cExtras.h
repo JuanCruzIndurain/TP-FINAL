@@ -16,4 +16,8 @@ public:
 	~cExtras();
 	int getTiempo() const { return Tiempo_Hervor; }
 	int getTemperatura() const { return Temperatura; }
+	friend ostream& operator<<(ostream &o, const cExtras &E);
+	void setTiempo_Hervor(int tiemp_Hervor) { Tiempo_Hervor = tiemp_Hervor; }
 };
+
+istream& operator>>(istream &i, cExtras &E);
