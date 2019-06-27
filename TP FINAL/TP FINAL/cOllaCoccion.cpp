@@ -44,7 +44,7 @@ void cOllaCoccion::Hacer_Algo(cProceso* Proceso, float CantidadMosto)
 		cout << "\rSacando espuma con la " << Espumadera << "...                                           ";
 		Generador_Tiempo(1);
 	}
-	tiempo = Proceso->Tiempo;
+	tiempo = (int)Proceso->Tiempo;
 }
 
 void cOllaCoccion::HervirMosto(float temperatura)
@@ -52,9 +52,9 @@ void cOllaCoccion::HervirMosto(float temperatura)
 	if (Temperatura < temperatura)
 	{
 		cout << endl;
-		for (int i = Temperatura; i < temperatura; i++) 
+		for (int i = (int)Temperatura; i < temperatura; i++) 
 		{
-			Temperatura = i;
+			Temperatura = (float)i;
 			cout << "\rCalentando mosto... " << i << " C                                           ";
 			Generador_Tiempo(1);
 		}

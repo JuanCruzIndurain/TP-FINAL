@@ -64,7 +64,7 @@ cReceta::~cReceta()
 			}
 		}
 
-		delete[] Olla;
+		delete[] &Olla;
 	}
 
 	if (FA != NULL)
