@@ -23,7 +23,7 @@ void cOllaAgua::Hacer_Algo(cProceso* Proceso, float)
 	for (int i = (int)Temperatura; i < (int)Proceso->Temperatura + 1; i++)
 	{
 		Temperatura = (float)i;
-		cout << "\rCalentando... " << i << " C";
+		cout << "\rCalentando... " << i << " C                             ";
 		Generador_Tiempo(1);
 	}
 	cout << "\n";

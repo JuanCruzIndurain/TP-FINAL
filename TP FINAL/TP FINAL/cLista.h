@@ -94,7 +94,7 @@ void cListaT<T>::Listar()
 {
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		vector[i]->Imprimir();// imprimir
+		vector[i]->Imprimir(); // imprimir
 	}
 }
 

@@ -24,7 +24,7 @@ cOllaMaceracion::~cOllaMaceracion()
 void cOllaMaceracion::Hacer_Algo(cProceso* Proceso, float CantidadAgua)
 {
 	cout << endl;
-	if (CantidadAgua == 0)
+	if (CantidadAgua != 0)
 	{
 		if (CantidadAgua > Capacidad)Cant_Agua = Capacidad;
 		else Cant_Agua = CantidadAgua;
@@ -38,7 +38,8 @@ void cOllaMaceracion::Hacer_Algo(cProceso* Proceso, float CantidadAgua)
 			Generador_Tiempo(1);
 		}
 	}
-	try {
+	try
+	{
 		if (Cant_Agua + Proceso->Cant_Usada > Capacidad)throw new ExcesoCapacidad();
 	}
 	catch (ExcesoCapacidad* ERROR) //Se quita el exceso de contenido de la olla
@@ -47,6 +48,7 @@ void cOllaMaceracion::Hacer_Algo(cProceso* Proceso, float CantidadAgua)
 		Cant_Agua = CantidadAgua - ((CantidadAgua + Proceso->Cant_Usada) - Capacidad) / 2;
 		Cant_Malta = Proceso->Cant_Usada - ((CantidadAgua + Proceso->Cant_Usada) - Capacidad) / 2;
 	}
+
 	Temperatura = Proceso->Temperatura;
 
 	if (Proceso->Cant_Usada > 400)
