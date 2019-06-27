@@ -28,7 +28,7 @@ public:
 	void Eliminar(unsigned int pos);
 	T* operator[](string clave) 
 	{
-		if (Pos < TAM)
+		if (CA < TAM)
 			return BuscarItem(clave);
 		else return NULL;
 	}
