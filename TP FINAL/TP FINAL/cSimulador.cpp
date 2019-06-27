@@ -20,7 +20,7 @@ cSimulador::cSimulador()
 		}
 	}
 
-	Recetas = new cListaT<cReceta>(1);
+	Recetas = new cListaT<cReceta>(5);
 
 	//PORTER
 	cReceta* Porter = new cReceta(DANIELS, Factores_Aprovechamiento, 1.011, 1.054, "Porter");

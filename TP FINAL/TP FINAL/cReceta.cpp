@@ -5,31 +5,35 @@ cReceta::cReceta()
 	Nombre = "";
 	Graduacion_Alcoholica = 0;
 	IBU = 0;
-
+	Tipos_Enfriamiento[0] = "";
+	Tipos_Enfriamiento[1] = "";
+	Tipos_Enfriamiento[2] = "";
 	Fermentador = new cFermentador();
 	Olla[0] = NULL;
 	Olla[1] = NULL;
 	Olla[2] = NULL;
-
 	Insumos = NULL;
 	Procesos = NULL;
 }
 
-cReceta::cReceta(int Metodo_Calculo, float** fa, float densidad_final, float original_gravity, string Nombre)
+cReceta::cReceta(int metodo_Calculo, float** fa, float densidad_final, float original_gravity, string Nombre)
 {
+	Tipos_Enfriamiento[Green_Belly] = "Green Belly";
+	Tipos_Enfriamiento[Serpentina_Liquido_Refrigerante] = "Serpentina liquido refrigerante";
+	Tipos_Enfriamiento[No_Frost] = "No Frost";
 	Insumos = new cListaT<cInsumo>(50);
 	Procesos = new cListaT<cProceso>(50);
-	this->Metodo_Calculo = Metodo_Calculo;
-	this->Original_Gravity = original_gravity;
-	this->Densidad_Final = densidad_final;
+	Metodo_Calculo = metodo_Calculo;
+	Original_Gravity = original_gravity;
+	Densidad_Final = densidad_final;
 	this->Nombre = Nombre;
-	this->Graduacion_Alcoholica = Graduacion_Alcoholica;
-	this->IBU = IBU;
-	this->Fermentador = Fermentador;
-	this->Olla[Agua] = new cOllaAgua(50000, "Acero Inoxidable", TA); //La olla tiene 50 litros (50000 cm3) de capacidad
-	this->Olla[Maceracion] = new cOllaMaceracion(50000, "Aluminio", TA);
-	this->Olla[Coccion] = new cOllaCoccion(50000, "Aluminio", TA);
-	this->FA = fa;
+	Graduacion_Alcoholica = 6;
+	IBU = 36;
+	Fermentador = new cFermentador(50000, TA, 0, Tipos_Enfriamiento[rand() % 3]);
+	Olla[Agua] = new cOllaAgua(50000, "Acero Inoxidable", TA); //La olla tiene 50 litros (50000 cm3) de capacidad
+	Olla[Maceracion] = new cOllaMaceracion(50000, "Aluminio", TA);
+	Olla[Coccion] = new cOllaCoccion(50000, "Aluminio", TA);
+	FA = fa;
 }
 
 cReceta::~cReceta()
@@ -47,9 +51,10 @@ void cReceta::simular()
 	cOllaAgua *Olla_Agua = dynamic_cast<cOllaAgua*>(Olla[Agua]);
 	cOllaMaceracion *Olla_Maceracion = dynamic_cast<cOllaMaceracion*>(Olla[Maceracion]);
 	cOllaCoccion *Olla_Coccion = dynamic_cast<cOllaCoccion*>(Olla[Coccion]);
+	bool flagCoccion = false, flagFermentacion = false;
+
 	for (unsigned int i = 0; i < Procesos->getCA(); i++) 
 	{
-		bool flagCoccion = false, flagFermentacion = false;
 		switch (Procesos->getItem(i)->Tipo)
 		{
 		case Calentar_Agua:
@@ -72,7 +77,7 @@ void cReceta::simular()
 		{
 			if (flagCoccion == false)
 			{
-				Olla_Coccion->HervirMosto(100);
+				Olla_Coccion->HervirMosto(101);
 				flagCoccion = true;
 			}
 			if (Procesos->getItem(i)->Cant_Usada > 0)
@@ -101,10 +106,17 @@ void cReceta::simular()
 			{
 				Fermentador->Agregar(Olla_Coccion->getContenido());
 
+				for (int i = 0; i < 15; i++)
+				{
+					cout << "\rFermentando.   " << i << " dias                            ";
+					Generador_Tiempo(1);
+					cout << "\rFermentando..  " << i << " dias                            ";
+					Generador_Tiempo(1);
+					cout << "\rFermentando... " << i << " dias                            ";
+					Generador_Tiempo(1);
+				}
 
-				//Falta setear la cantidad de la olla coccion a 0
-
-
+				Olla_Coccion->setContenido(0);
 				flagFermentacion = true;
 			}
 			else 
@@ -117,15 +129,21 @@ void cReceta::simular()
 
 		case Embotellado:
 		{
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 5; i++)
 			{
-				cout << "\rEmbotellando. " << endl;
-				Generador_Tiempo(1);
-				cout << "\rEmbotellando.." << endl;
-				Generador_Tiempo(1);
-				cout << "\rEmbotellando.." << endl;
+				cout << "\rEmbotellando.                                            ";
+				Generador_Tiempo(1);	   
+				cout << "\rEmbotellando..                                             ";
+				Generador_Tiempo(1);	   
+				cout << "\rEmbotellando...                                           ";
 				Generador_Tiempo(1);
 			}
+
+			cout << "\nCerveza: " << Nombre << " finalizada" << endl;
+			cout << "IBU: " << IBU << endl;
+			cout << "Graduacion alcoholica: " << Graduacion_Alcoholica << endl;
+
+			system("pause");
 		}
 
 		default:

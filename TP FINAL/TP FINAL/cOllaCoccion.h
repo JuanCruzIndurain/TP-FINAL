@@ -9,6 +9,7 @@ private:
 	float Contenido_Actual;
 	int tiempo = 0;
 
+
 public:
 	cOllaCoccion();
 	cOllaCoccion(const float capacidad, const string material, float Temperatura);
@@ -16,5 +17,6 @@ public:
 
 	void Hacer_Algo(cProceso* Proceso, float CantidadAgua);
 	void HervirMosto(float);
-	float getContenido() { return Contenido_Actual; }
+	float getContenido()const { return Contenido_Actual; }
+	void setContenido(float cont) { Contenido_Actual = cont; }
 };

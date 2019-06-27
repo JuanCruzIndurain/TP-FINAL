@@ -48,12 +48,26 @@ void cOllaMaceracion::Hacer_Algo(cProceso* Proceso, float CantidadAgua)
 		Cant_Malta = Proceso->Cant_Usada - ((CantidadAgua + Proceso->Cant_Usada) - Capacidad) / 2;
 	}
 	Temperatura = Proceso->Temperatura;
-	for (int i = 0; i < (int)(Proceso->Cant_Usada/50); i++)
+
+	if (Proceso->Cant_Usada > 400)
 	{
-		cout << "\rAgregando " << Proceso->Insumo->getNombre() << "... " << i * 50 << "Kg                    ";
-		Cant_Malta += i;
-		Generador_Tiempo(1);
+		for (int i = 0; i < (int)(Proceso->Cant_Usada / 50); i++)
+		{
+			cout << "\rAgregando " << Proceso->Insumo->getNombre() << "... " << i * 50 << "g                    ";
+			Cant_Malta += i;
+			Generador_Tiempo(1);
+		}
 	}
+	else
+	{
+		for (int i = 0; i < (int)(Proceso->Cant_Usada / 10); i++)
+		{
+			cout << "\rAgregando " << Proceso->Insumo->getNombre() << "... " << i * 10 << "g                    ";
+			Cant_Malta += i;
+			Generador_Tiempo(2);
+		}
+	}
+	
 	for (int i = 0; i < Proceso->Tiempo; i++)
 	{
 		cout << "\rMacerando... " << i << " min                                                  ";
@@ -77,7 +91,7 @@ void cOllaMaceracion::Filtrar(float CantidadAguaLavado)
 	}
 	for (int i = 0; i < CantidadAguaLavado + 1; i++)
 	{
-		cout << "\rFiltrando con " + Remo + "... " + to_string(i) + "min                                       ";
+		cout << "\rFiltrando con " << Remo << "... " << i << " min                                       ";
 		Generador_Tiempo(1);
 	}
 

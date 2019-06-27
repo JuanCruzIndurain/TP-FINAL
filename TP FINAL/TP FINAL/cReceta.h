@@ -25,6 +25,7 @@ private:
 	float** FA;
 	friend class cSimulador;
 	int Metodo_Calculo;
+	string Tipos_Enfriamiento[3];
 
 public:
 	cReceta();

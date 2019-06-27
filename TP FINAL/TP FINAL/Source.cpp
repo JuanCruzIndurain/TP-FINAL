@@ -6,41 +6,56 @@ int main(void)
 	srand(time(0));
 
 	cSimulador *Simulador = new cSimulador();
-	int Tipo;
+	int Tipo = 0;
+	string Aux = "";
 
-	cout << "----- Indique el numero del tipo de cerveza pedido ----- " << endl;
-	cout << "\n1 - Rubia" << "\n2 - Porter" << "\n3 - Honey" << "\n4 - IPA" << "\n5 - Irish Red" << "\nSeleccion: ";
-	cin >> Tipo;
-
-	switch (Tipo)
+	while (Tipo != 9)
 	{
-		case Rubia:
-			Simulador->Simular("Rubia");
-			break;
+		system("cls");
 
-		case Porter:
-			Simulador->Simular("Porter");
-			break;
+		cout << "----- Indique el tipo de cerveza pedido ----- " << endl;
+		cout << "\n1 - Rubia" << "\n2 - Porter" << "\n3 - Honey" << "\n4 - IPA" << "\n5 - Irish Red" << "\n9 - Salir" << endl;
+		cout << "\nSeleccion: ";
+		cin >> Aux;
 
-		case Honey:
-			Simulador->Simular("Honey");
-			break;
+		try
+		{
+			Tipo = stoi(Aux);
 
-		case IPA:
-			Simulador->Simular("IPA");
-			break;
+			switch (Tipo)
+			{
+			case Rubia:
+				Simulador->Simular("Rubia");
+				break;
 
-		case Irish_Red:
-			Simulador->Simular("Irish Red");
-			break;
+			case Porter:
+				Simulador->Simular("Porter");
+				break;
 
-		default:
-			break;
+			case Honey:
+				Simulador->Simular("Honey");
+				break;
+
+			case IPA:
+				Simulador->Simular("IPA");
+				break;
+
+			case Irish_Red:
+				Simulador->Simular("Irish Red");
+				break;
+
+			default:
+				break;
+			}
+		}
+		catch (...)
+		{
+			cout << "ERROR" << endl;
+
+			system("pause");
+		}
 	}
-
+	
 	delete Simulador;
 	return 0;
-	
-
-	system("pause");
 }

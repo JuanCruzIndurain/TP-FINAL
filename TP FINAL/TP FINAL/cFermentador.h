@@ -16,7 +16,7 @@ private:
 
 public:
 	cFermentador();
-	cFermentador(float cap, float temp, float vol, string tipo);
+	cFermentador(float cap, float temp, float vol_actual, string tipo_enfriamiento);
 	~cFermentador();
 	void Agregar(float vol);
 	void Fermentar(cProceso* Proceso);
