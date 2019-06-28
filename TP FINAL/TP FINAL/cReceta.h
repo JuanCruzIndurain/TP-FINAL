@@ -19,7 +19,10 @@ private:
 	string Nombre;
 	cListaT<cInsumo> *Insumos;
 	cListaT<cProceso> *Procesos;
-	float Densidad_Final, Original_Gravity, Graduacion_Alcoholica, IBU;
+	float Densidad_Final;
+	float Original_Gravity;
+	float Graduacion_Alcoholica;
+	float IBU;
 	cFermentador* Fermentador;
 	cOlla* Olla[3];
 	float** FA;

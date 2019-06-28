@@ -127,17 +127,13 @@ void cReceta::simular()
 
 				if (Lupulo != NULL)
 				{
-					try
+					if (Olla_Maceracion->getMosto() == 0)
 					{
-						IBU += (Procesos->getItem(i)->Cant_Usada * FA[Metodo_Calculo][(int)(Lupulo->getTiempoHervor() / 5)] * Lupulo->getAlfaAcidos() * 1000) / Olla_Maceracion->getMosto();
-						
-						if (Olla_Maceracion->getMosto() == 0) throw new exception("Division por cero");
+						cout << "Division por cero" << endl;
 					}
-					catch (exception *ex)
+					else
 					{
-						cerr << ex->what() << endl;
-
-						IBU = NULL;
+						IBU = IBU + (Procesos->getItem(i)->Cant_Usada * FA[Metodo_Calculo][(int)Procesos->getItem(i)->Tiempo] * Lupulo->getAlfaAcidos()) / (Olla_Maceracion->getMosto());
 					}
 				}
 			}
@@ -185,6 +181,8 @@ void cReceta::simular()
 				cout << "\rEmbotellando...                                           ";
 				Generador_Tiempo(1);
 			}
+
+			Graduacion_Alcoholica = (Original_Gravity - Densidad_Final)*0.13125;
 
 			cout << "\nCerveza: " << Nombre << " finalizada" << endl;
 			cout << "IBU: " << IBU << endl;

@@ -23,7 +23,7 @@ cSimulador::cSimulador()
 	Recetas = new cListaT<cReceta>(5);
 
 	//PORTER
-	cReceta* Porter = new cReceta(DANIELS, Factores_Aprovechamiento, (float)1.011, (float)1.054, "Porter");
+	cReceta* Porter = new cReceta(DANIELS, Factores_Aprovechamiento, (float)1011, (float)1054, "Porter");
 	cExtras* ExtraPorter = new cExtras("Agua", (float)34.8, 2, 0, TA);
 	Porter->Insumos->AgregarItem(ExtraPorter);
 	cMalta *MaltaPorter = new cMalta("Malta Pale", 5000, 160, 7);
@@ -77,7 +77,7 @@ cSimulador::cSimulador()
 	Recetas->AgregarItem(Porter);
 
 	//HONEY
-	cReceta* Honey = new cReceta(NOONAN, Factores_Aprovechamiento, (float)1.014, (float)1.058, "Honey");
+	cReceta* Honey = new cReceta(NOONAN, Factores_Aprovechamiento, (float)1014, (float)1058, "Honey");
 	cExtras* ExtraHoney = new cExtras("Agua", (float)40.3, 3, 0, TA);
 	Honey->Insumos->AgregarItem(ExtraHoney);
 	cMalta* MaltaHoney = new cMalta("Malta Pilsen", 4000, 170, 3);
@@ -123,7 +123,7 @@ cSimulador::cSimulador()
 	Recetas->AgregarItem(Honey);
 	
 	// IRISH RED
-	cReceta* Irish_Red_Ale = new cReceta(GARETZ, Factores_Aprovechamiento, (float)1.016, (float)1.055, "Irish Red");
+	cReceta* Irish_Red_Ale = new cReceta(GARETZ, Factores_Aprovechamiento, (float)1016, (float)1055, "Irish Red");
 	cExtras* ExtraIrishRed = new cExtras("Agua", (float)35, 5, 0, TA);
 	Irish_Red_Ale->Insumos->AgregarItem(ExtraIrishRed);
 	cMalta* MaltaIrishRed = new cMalta("Malta Pale", 4250, 80, 6);
@@ -165,7 +165,7 @@ cSimulador::cSimulador()
 	Recetas->AgregarItem(Irish_Red_Ale);
 
 	// IPA
-	cReceta* IPA = new cReceta(RAGER, Factores_Aprovechamiento, (float)1.012, (float)1.040, "IPA");
+	cReceta* IPA = new cReceta(RAGER, Factores_Aprovechamiento, (float)1012, (float)1040, "IPA");
 	cExtras* ExtraIpa = new cExtras("Agua", (float)55, 5, 0, TA);
 	IPA->Insumos->AgregarItem(ExtraIpa);
 	cMalta* MaltaIpa = new cMalta("Malta Pale", 1750, 70, 6);
@@ -242,7 +242,7 @@ cSimulador::cSimulador()
 	
 	// RUBIA
 
-	cReceta* Rubia = new cReceta(RAGER, Factores_Aprovechamiento, (float)1.013, (float)1.050, "Rubia");
+	cReceta* Rubia = new cReceta(RAGER, Factores_Aprovechamiento, (float)1013, (float)1050, "Rubia");
 	cExtras* ExtraRubia = new cExtras("Agua", (float)40, 5, 0, TA);
 	Rubia->Insumos->AgregarItem(ExtraRubia);
 	ExtraRubia = new cExtras("Botella", 20, 10);
@@ -257,9 +257,9 @@ cSimulador::cSimulador()
 	Rubia->Insumos->AgregarItem(LupuloRubia);
 	ExtraRubia = new cExtras("Levadura Safale Us-05", 23, 5);
 	Rubia->Insumos->AgregarItem(ExtraRubia);
-	ExtraRubia = new cExtras("Sulfato Calsio", 4, 16);
+	ExtraRubia = new cExtras("Sulfato Calcio", 4, 16);
 	Rubia->Insumos->AgregarItem(ExtraRubia);
-	ExtraRubia = new cExtras("Cloruro de Calsio", 1, 17);
+	ExtraRubia = new cExtras("Cloruro de Calcio", 1, 17);
 	Rubia->Insumos->AgregarItem(ExtraRubia);
 	ExtraRubia = new cExtras("Irish Moss", 1, 8);
 	Rubia->Insumos->AgregarItem(ExtraRubia);
@@ -273,9 +273,9 @@ cSimulador::cSimulador()
 	Rubia->Procesos->AgregarItem(ProcesoRubia);
 	ProcesoRubia = new cProceso(Rubia->Insumos->BuscarItem("Cascade")->getCantidad(), 66, 0, Maceracion, Rubia->Insumos->BuscarItem("Cascade"));
 	Rubia->Procesos->AgregarItem(ProcesoRubia);
-	ProcesoRubia = new cProceso(Rubia->Insumos->BuscarItem("Sulfato Calsio")->getCantidad(), 66, 0, Maceracion, Rubia->Insumos->BuscarItem("Sulfato Calsio"));
+	ProcesoRubia = new cProceso(Rubia->Insumos->BuscarItem("Sulfato Calcio")->getCantidad(), 66, 0, Maceracion, Rubia->Insumos->BuscarItem("Sulfato Calcio"));
 	Rubia->Procesos->AgregarItem(ProcesoRubia);
-	ProcesoRubia = new cProceso(Rubia->Insumos->BuscarItem("Cloruro de Calsio")->getCantidad(), 66, 0, Maceracion, Rubia->Insumos->BuscarItem("Cloruro de Calsio"));
+	ProcesoRubia = new cProceso(Rubia->Insumos->BuscarItem("Cloruro de Calcio")->getCantidad(), 66, 0, Maceracion, Rubia->Insumos->BuscarItem("Cloruro de Calcio"));
 	Rubia->Procesos->AgregarItem(ProcesoRubia);
 	ProcesoRubia = new cProceso(14, 65, 15, Lavado, Rubia->Insumos->BuscarItem("Agua"));
 	Rubia->Procesos->AgregarItem(ProcesoRubia);
