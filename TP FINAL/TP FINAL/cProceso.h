@@ -22,7 +22,7 @@ public:
 		Insumo = insumo;
 		ID++;
 	}
-	~cProceso() { delete Insumo; }
+	~cProceso() {}
 	string getNombre()const { return to_string(IDotro); }
 };
 
