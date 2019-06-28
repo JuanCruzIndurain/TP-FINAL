@@ -21,10 +21,10 @@ cInsumo::~cInsumo()
 cInsumo * cInsumo::operator=(cInsumo & p)
 {
 	
-		p.Nombre = Nombre;
-		p.Cantidad = Cantidad;
-		p.Costo = Costo;
-		return &p;
+		Nombre = p.Nombre;
+		Cantidad =  p.Cantidad;
+		Costo = p.Costo;
+		return this;
 }
 
 bool cInsumo::operator==(cInsumo & p)
@@ -46,9 +46,28 @@ bool cInsumo::operator!=(cInsumo & p)
 	return false;
 }
 
-void cInsumo::operator++()
+cInsumo* cInsumo::operator++()
 {
-	Cantidad = Cantidad + 1;
+	this->Cantidad++;
+	return this;
+}
+
+bool cInsumo::operator<(cInsumo & p)
+{
+	if (p.Cantidad > Cantidad)
+	{
+		return true;
+	}
+	return false;
+}
+
+bool cInsumo::operator>(cInsumo & p)
+{
+	if (p.Cantidad < Cantidad)
+	{
+		return true;
+	}
+	return false;
 }
 
 ostream & operator<<(ostream & o, const cInsumo & i)

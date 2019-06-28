@@ -27,7 +27,9 @@ public:
 	cInsumo* operator=(cInsumo &p);
 	bool operator==(cInsumo &p);
 	bool operator !=(cInsumo &p);
-	void operator++();
+	cInsumo* operator++();
+	bool operator<(cInsumo &p);
+	bool operator>(cInsumo &p);
 	
 };
 istream& operator>>(istream &i, cInsumo &P)

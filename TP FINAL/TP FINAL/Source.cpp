@@ -55,7 +55,9 @@ int main(void)
 			system("pause");
 		}
 	}
-	
+
 	delete Simulador;
+	
+	
 	return 0;
 }

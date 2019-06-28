@@ -39,7 +39,7 @@ cReceta::cReceta(int metodo_Calculo, float** fa, float densidad_final, float ori
 
 cReceta::~cReceta()
 {
-	if (Procesos != NULL)
+ 	if (Procesos != NULL)
 	{
 		delete Procesos;
 	}
