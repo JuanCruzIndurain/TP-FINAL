@@ -61,24 +61,12 @@ cReceta::~cReceta()
 			if (Olla[i] != NULL)
 			{
 				delete Olla[i];
+				Olla[i] = NULL;
 			}
 		}
-
-		delete[] &Olla;
 	}
 
-	if (FA != NULL)
-	{
-		for (int i = 0; i < 6 ; i++)
-		{
-			if (FA[i] != NULL)
-			{
-				delete FA[i];
-			}
-		}
-
-		delete[] FA;
-	}
+	if (FA != NULL) FA = NULL;
 }
 
 void cReceta::Imprimir_Info() const

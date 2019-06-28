@@ -308,7 +308,6 @@ cSimulador::~cSimulador()
 				delete Factores_Aprovechamiento[i];
 			}
 		}
-
 		delete[] Factores_Aprovechamiento;
 	}
 }
