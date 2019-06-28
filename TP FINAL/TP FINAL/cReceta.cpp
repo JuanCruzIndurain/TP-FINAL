@@ -15,6 +15,10 @@ cReceta::cReceta()
 	Insumos = NULL;
 	Procesos = NULL;
 	FA = NULL;
+	a = 0;
+	b = 0;
+	c = 0;
+	d = 0;
 }
 
 cReceta::cReceta(int metodo_Calculo, float** fa, float densidad_final, float original_gravity, string Nombre)
@@ -121,7 +125,11 @@ void cReceta::simular()
 					}
 					else
 					{
-						IBU = IBU + (Procesos->getItem(i)->Cant_Usada * FA[Metodo_Calculo][(int)Procesos->getItem(i)->Tiempo] * Lupulo->getAlfaAcidos()) / (Olla_Maceracion->getMosto());
+						b = FA[Metodo_Calculo][(int)Procesos->getItem(i)->Tiempo/5];
+						c = (int)Procesos->getItem(i)->Tiempo;
+						a = Procesos->getItem(i)->Cant_Usada * Lupulo->getAlfaAcidos() * b;
+						
+						IBU = IBU + ( a / (3*Olla_Maceracion->getMosto()));
 					}
 				}
 			}
@@ -137,7 +145,7 @@ void cReceta::simular()
 			{
 				Fermentador->Agregar(Olla_Coccion->getContenido());
 
-				for (int j = 0; j < Procesos->getItem(i)->Tiempo ; j++)
+				for (int j = 0; j < Procesos->getItem(i)->Tiempo + 1; j++)
 				{
 					cout << "\rFermentando.   " << j << " dias                            ";
 					Generador_Tiempo(1);
@@ -173,16 +181,15 @@ void cReceta::simular()
 			Graduacion_Alcoholica = (Original_Gravity - Densidad_Final)*0.13125;
 
 			cout << "\nCerveza: " << Nombre << " finalizada" << endl;
-			cout << "IBU: " << IBU << endl;
-			cout << "Graduacion alcoholica: " << Graduacion_Alcoholica << endl;
+			cout << "IBU: " << fixed << setprecision(2) << IBU << endl;
+			cout << "Graduacion alcoholica: " << fixed << setprecision(2) << Graduacion_Alcoholica << endl;
 
 			Olla_Maceracion->setCant_Agua(0);
 			Olla_Maceracion->setCant_Malta(0);
 
 			system("pause");
 		}
-
-		default:
+		
 			break;
 		}
 	}

@@ -12,6 +12,7 @@
 #include "cProceso.h"
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 class cReceta
 {
@@ -29,6 +30,7 @@ private:
 	friend class cSimulador;
 	int Metodo_Calculo;
 	string Tipos_Enfriamiento[3];
+	int a,b,c,d;
 
 public:
 	cReceta();

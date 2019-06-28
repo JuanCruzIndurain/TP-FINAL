@@ -17,7 +17,6 @@ cOllaCoccion::~cOllaCoccion()
 
 void cOllaCoccion::Hacer_Algo(cProceso* Proceso, float CantidadMosto)
 {
-	float IBU = 0;
 	cout << endl;
 	for (int i = tiempo; i < tiempo + Proceso->Tiempo + 1; i++)
 	{
